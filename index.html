@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   나르시시스트 테스트 | 나르시시스트닷컴
+  </title>
+  <meta content="나르시시스트 테스트를 통해 당신의 관계 건강도를 점검하고 회복 단계를 확인해보세요. 간단한 체크리스트로 심리 상태를 파악할 수 있습니다." name="description"/>
+  <meta content="나르시시스트, 계산기, 자가진단, 관계, 심리테스트, 정서적 학대, 가스라이팅, 심리 건강" name="keywords"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://your-narcissist-calculator-url.com/" property="og:url"/>
+  <meta content="나르시시스트 테스트 - 당신의 관계 건강도는?" property="og:title"/>
+  <meta content="간단한 체크리스트로 당신의 관계 건강도를 점검하고 나르시시스트 성향에 대해 알아보세요." property="og:description"/>
+  <meta content="https://your-narcissist-calculator-url.com/images/og-calculator-preview.png" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="나르시시스트 테스트" property="og:site_name"/>
+  <meta content="ko_KR" property="og:locale"/>
+  <meta content="summary_large_image" property="twitter:card"/>
+  <meta content="https://your-narcissist-calculator-url.com/" property="twitter:url"/>
+  <meta content="나르시시스트 테스트 - 당신의 관계 건강도는?" property="twitter:title"/>
+  <meta content="간단한 체크리스트로 당신의 관계 건강도를 점검하고 나르시시스트 성향에 대해 알아보세요." property="twitter:description"/>
+  <meta content="https://your-narcissist-calculator-url.com/images/og-calculator-preview.png" property="twitter:image"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+  <style>
+   /* ===== 폰트 및 컬러 정의 ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f7f7f7;
+      color: #444444;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    :root {
+      --primary-color: #4B3869;
+      --primary-dark:  #3A2C58;
+      --primary-light: #D5CAE3;
+      --primary-lighter: #F4F1F8;
+      --success-color: #2ecc71;
+      --warning-color: #f1c40f;
+      --alert-color:   #e67e22;
+      --danger-color:  #e74c3c;
+      --critical-color:#c0392b;
+      --card-bg:       #ffffff;
+      --background:    #f7f7f7;
+      --text-main:     #444444;
+      --text-dark:     #333333;
+      --text-secondary:#666666;
+      --text-light:    #999999;
+      --border-light:  #E5E5E5;
+      
+      --spacing-xs: 8px;
+      --spacing-sm: 12px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 48px;
+      
+      --font-base: 17px;
+      --font-small: 14px;
+      --font-medium: 18px;
+      --font-large: 22px;
+      --font-xlarge: 26px;
+      --font-xxlarge: 32px;
+    }
+    /* ===== 기본 레이아웃 및 컨테이너 ===== */
+    .calculator-container, .result-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+      padding: var(--spacing-xl);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .calculator-container:hover, .result-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.06);
+    }
+    /* ===== 질문 섹션 ===== */
+    .questions-list {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+      margin-right: -10px;
+      scroll-behavior: smooth;
+      padding-top: var(--spacing-md);
+    }
+    .questions-list::-webkit-scrollbar { width: 6px; }
+    .questions-list::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 10px; }
+    .questions-list::-webkit-scrollbar-track { background: rgba(213, 202, 227, 0.1); border-radius: 10px; }
+    .question-item {
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      padding: var(--spacing-md) var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+      border-radius: 12px;
+      position: relative;
+      border-left: 0px solid var(--primary-color);
+      background-color: var(--primary-lighter);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+    .question-item:hover {
+      background-color: #ede8f6;
+      border-left: 4px solid var(--primary-color);
+      transform: translateX(2px) scale(1.01);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+    .question-item label {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-main);
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .emoji-icon {
+      font-size: 1.4rem;
+      margin-right: 0.6rem;
+      display: inline-block;
+      transform: translateY(2px);
+      min-width: 1.4rem;
+    }
+    .question-text { flex: 1; }
+    input[type="checkbox"] {
+      width: 24px; height: 24px;
+      accent-color: var(--primary-color);
+      cursor: pointer;
+      border-radius: 6px;
+      margin-left: 14px;
+      margin-top: 0.2rem;
+      transition: all 0.2s ease;
+      position: relative;
+      flex-shrink: 0;
+    }
+    input[type="checkbox"]:checked {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 2px rgba(75, 56, 105, 0.2);
+    }
+    /* ===== 결과 섹션 ===== */
+    .result-container { display: none; }
+    .result-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                  box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .result-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 6px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    }
+    .result-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+    .header { text-align: center; margin-bottom: 2.5rem; }
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+      position: relative;
+      display: inline-block;
+    }
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 4px;
+      background-color: var(--primary-color); border-radius: 2px;
+    }
+    .subtitle { font-size: 18px; color: var(--text-secondary); margin-top: 1rem; }
+    .score-section { text-align: center; padding: 2rem 0; }
+    .score-container {
+      background: linear-gradient(135deg, rgba(75, 56, 105, 0.07), rgba(75, 56, 105, 0.03));
+      border-radius: 16px; padding: 2.5rem;
+      display: flex; flex-direction: column; align-items: center;
+      position: relative; border: 1px solid rgba(75, 56, 105, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .score-label { font-size: 18px; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .score-value {
+      font-size: 4.5rem; font-weight: 900;
+      background: linear-gradient(45deg, var(--primary-color), #6e5498);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      line-height: 1; margin: 0.5rem 0;
+      position: relative; display: inline-block;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .score-value::after {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-25deg); animation: shine 3s infinite;
+    }
+    @keyframes shine { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+    .score-value-text { font-size: 2rem; color: var(--primary-color); font-weight: 700; }
+    .checked-count { font-size: 17px; color: var(--text-secondary); margin-top: 0.5rem; }
+    .level-badge {
+      margin-top: 1.2rem; font-size: 17px; font-weight: 600;
+      padding: 0.8rem 1.8rem; border-radius: 100px;
+      display: inline-block; animation: pulseBadge 2.5s infinite;
+      border: 1px solid transparent;
+    }
+    .level-badge.low { background-color: rgba(46, 204, 113, 0.1); color: var(--success-color); border-color: rgba(46, 204, 113, 0.3); animation-name: pulseBadgeGreen; }
+    .level-badge.caution { background-color: rgba(241, 196, 15, 0.1); color: var(--warning-color); border-color: rgba(241, 196, 15, 0.3); animation-name: pulseBadgeYellow; }
+    .level-badge.warning { background-color: rgba(230, 126, 34, 0.1); color: var(--alert-color); border-color: rgba(230, 126, 34, 0.3); animation-name: pulseBadgeOrange; }
+    .level-badge.danger { background-color: rgba(231, 76, 60, 0.1); color: var(--danger-color); border-color: rgba(231, 76, 60, 0.3); animation-name: pulseBadgeRed; }
+    .level-badge.critical { background-color: rgba(192, 57, 43, 0.1); color: var(--critical-color); border-color: rgba(192, 57, 43, 0.3); animation-name: pulseBadgeDarkRed; }
+    @keyframes pulseBadgeGreen { 0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+    @keyframes pulseBadgeYellow { 0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(241, 196, 15, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); } }
+    @keyframes pulseBadgeOrange { 0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); } 100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); } }
+    @keyframes pulseBadgeRed { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
+    @keyframes pulseBadgeDarkRed { 0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); } 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); } }
+    .gauge-container { width: 100%; margin: 2.5rem 0; }
+    .gauge-bar { height: 12px; background-color: var(--border-light); border-radius: 100px; position: relative; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06); }
+    .gauge-fill { height: 100%; border-radius: 100px; width: 0%; background: linear-gradient(90deg, var(--danger-color), #e74c3c); position: relative; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 1s ease, background-image 1s ease; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+    .gauge-markers { position: relative; width: 100%; height: 30px; margin-top: 10px; display: flex; justify-content: space-between; }
+    .gauge-marker { position: relative; display: flex; flex-direction: column; align-items: center; width: 2px; font-size: 14px; color: var(--text-secondary); }
+    .gauge-marker::before { content: ''; width: 2px; height: 8px; background-color: #d1d5db; margin-bottom: 4px; }
+    .interpretation-section { margin: 2.5rem 0; animation: fadeIn 1s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .section-title {
+      font-size: 22px; font-weight: 600; margin-bottom: 1.5rem; position: relative; padding-left: 1rem;
+      display: flex; align-items: center; color: var(--primary-color);
+    }
+    .section-title::before {
+      content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      width: 4px; height: 24px; background-color: var(--primary-color); border-radius: 2px;
+    }
+    .interpretation-content {
+      background-color: var(--primary-lighter);
+      padding: 2rem; border-radius: 16px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(213, 202, 227, 0.3);
+      transition: all 0.3s ease;
+    }
+    .interpretation-content:hover { box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04); transform: translateY(-2px); }
+    .interpretation-text { font-size: 18px; line-height: 1.8; color: var(--text-main); }
+    .interpretation-text strong { color: var(--primary-dark); font-weight: 600; }
+    .actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.9rem 1.8rem; 
+      border-radius: 100px; 
+      font-size: 17px; 
+      font-weight: 600; 
+      cursor: pointer;
+      transition: all 0.3s ease; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      text-decoration: none; 
+      border: none; 
+      outline: none; 
+      min-width: 180px;
+    }
+    .btn-primary { background-color: var(--primary-color); color: white; box-shadow: 0 4px 14px rgba(75, 56, 105, 0.3); }
+    .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(75, 56, 105, 0.4); }
+    .btn-primary:active { transform: translateY(-1px) scale(0.98); }
+    .btn-outlined { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+    .btn-outlined:hover { background-color: rgba(75, 56, 105, 0.05); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(75, 56, 105, 0.15); }
+    .btn-secondary { background-color: #f3f4f6; color: var(--text-secondary); }
+    .btn-secondary:hover { background-color: #e5e7eb; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+    .btn-icon { margin-right: 0.5rem; font-size: 1.1em; }
+    .btn-icon-only {
+        width: 50px; height: 50px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        background-color: #f3f4f6; font-size: 22px; cursor: pointer; margin: 0 10px;
+        padding: 0; min-width: auto;
+        transition: all 0.3s ease;
+    }
+    .btn-icon-only:hover { background-color: #e5e7eb; transform: translateY(-2px); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .disclaimer {
+      text-align: center; 
+      margin-top: 2.5rem; 
+      font-size: 14px; 
+      color: var(--text-secondary); 
+      padding: 1.2rem;
+      background-color: rgba(75, 56, 105, 0.05); 
+      border-radius: 12px; 
+      border: 1px solid rgba(75, 56, 105, 0.1);
+    }
+    .disclaimer strong { color: var(--text-main); font-weight: 500; }
+    .watermark { position: absolute; bottom: 1rem; right: 1rem; font-size: 14px; color: var(--text-light); opacity: 0.7; }
+    .additional-links { text-align: center; margin-top: 20px; }
+    .additional-link { color: var(--primary-color); text-decoration: none; margin: 0 15px; font-size: 16px; transition: color 0.2s ease; }
+    .additional-link:hover { color: var(--primary-dark); text-decoration: underline; }
+    .main-button {
+      background-color: var(--primary-color); 
+      color: white; 
+      font-weight: 600; 
+      font-size: 17px;
+      padding: 1rem 2.5rem; 
+      border-radius: 100px;
+      box-shadow: 0 4px 15px rgba(75, 56, 105, 0.35); 
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%; 
+      max-width: 400px; 
+      letter-spacing: 0.5px; 
+      position: relative; 
+      overflow: hidden; 
+      border: none; 
+      cursor: pointer;
+    }
+    .main-button:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(75, 56, 105, 0.45); }
+    .main-button:active { transform: translateY(-1px) scale(0.98); }
+    .main-button::after {
+      content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
+      background-color: rgba(255, 255, 255, 0.4); border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0); opacity: 0; transition: transform 0.6s, opacity 0.6s;
+    }
+    .main-button:hover::after { transform: translate(-50%, -50%) scale(200); opacity: 0.2; }
+    .pulse-animation { animation: pulse 2.5s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(75, 56, 105, 0.4); } 70% { box-shadow: 0 0 0 12px rgba(75, 56, 105, 0); } 100% { box-shadow: 0 0 0 0 rgba(75, 56, 105, 0); } }
+    .status-message {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background-color: var(--primary-color); color: white; padding: 12px 24px; border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); z-index: 1000; opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease; font-size: 14px; font-weight: 500; pointer-events: none;
+    }
+    .status-message.show { opacity: 1; transform: translate(-50%, -10px); }
+    .staggered-fade-in { opacity: 0; transform: translateY(10px); animation: staggerFadeIn 0.5s ease forwards; }
+    @keyframes staggerFadeIn { to { opacity: 1; transform: translateY(0); } }
+    .main-button:focus-visible,
+    .btn:focus-visible,
+    .btn-icon-only:focus-visible,
+    input[type="checkbox"]:focus-visible,
+    .additional-link:focus-visible {
+      outline: 3px solid var(--primary-light);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(75, 56, 105, 0.3);
+      border-radius: 6px;
+    }
+    .main-button:focus-visible, .btn:focus-visible, .btn-icon-only:focus-visible { border-radius: 100px; }
+    @media (max-width: 768px) {
+      .calculator-container, .result-card { padding: 1.5rem; }
+      .title { font-size: 24px; }
+      .score-value { font-size: 3.5rem; }
+      .score-container { padding: 1.5rem; }
+      .section-title { font-size: 20px; }
+      .interpretation-text { font-size: 17px; line-height: 1.8; color: var(--text-main); }
+      .actions { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0.5rem; }
+      .calculator-container, .result-card { padding: 1rem; border-radius: 16px; }
+      .question-item { padding: var(--spacing-sm) var(--spacing-md); }
+      .title { font-size: 22px; }
+      .subtitle { font-size: 16px; }
+      .score-value { font-size: 3rem; }
+      .interpretation-content { padding: 1.5rem; }
+    }
+    :root {
+      --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --highlight-bar: linear-gradient(to right, var(--primary-color), var(--primary-light));
+      --shadow-deep: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    .title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--highlight-bar);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+    .main-button:hover,
+    .btn-primary:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-deep);
+      transition: var(--transition-spring);
+    }
+    .main-button:active,
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+    .calculator-container:hover,
+    .result-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transition: var(--transition-spring);
+    }
+    .gauge-fill {
+      transition: width 1.8s var(--transition-spring);
+    }
+    .score-value {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .btn-icon-only:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .interpretation-content {
+      animation: fadeInScale 0.6s ease-out;
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+ </head>
+ <body>
+  <section aria-labelledby="calculatorTitle" class="calculator-container animate__animated animate__fadeIn" id="questionsSectionWrapper">
+   <h1 class="title text-center mb-3" id="calculatorTitle" style="text-align: center; width: 100%; display: block;">
+    💬 나르시시스트 테스트
+   </h1>
+   <p class="subtitle text-center mb-8" style="text-align: center;">
+    📌 아래 문항 중
+    <span class="font-semibold" style="color: var(--primary-color);">
+     해당되는 것에 체크
+    </span>
+    해 주세요. (총
+    <span id="totalQuestionCount">
+     0
+    </span>
+    문항)
+   </p>
+   <div class="questions-list space-y-4 mb-12">
+    <p class="text-center text-gray-500" id="loadingMessage">
+     질문 목록을 불러오는 중입니다...
+    </p>
+   </div>
+   <div class="flex justify-center mt-12">
+    <div style="display: flex; justify-content: center; margin-top: 48px; margin-bottom: 32px;">
+     <button class="main-button pulse-animation" id="calculateBtn">
+      💡 내 점수 확인하기 ▶
+     </button>
+    </div>
+   </div>
+   <div class="disclaimer mt-8 opacity-80">
+    <p>
+     ✓ 모든 문항은
+     <strong>
+      개인 심리 체크
+     </strong>
+     를 위한 것으로, 체크된 항목은 외부에 저장되지 않습니다.
+    </p>
+   </div>
+  </section>
+  <section aria-labelledby="resultTitle" class="result-container animate__animated" id="resultSectionWrapper" style="display: none;">
+   <div class="result-card animate__animated">
+    <div class="header">
+     <h1 class="title" id="resultTitle">
+      나르시시스트 테스트 결과
+     </h1>
+     <p class="subtitle">
+      당신의 관계 건강도를 확인해보세요
+     </p>
+    </div>
+    <div class="score-section">
+     <div class="score-container">
+      <span class="score-label">
+       당신의 점수는
+      </span>
+      <div class="score-value" id="finalScore">
+       0
+       <span class="score-value-text">
+        점
+       </span>
+      </div>
+      <span class="checked-count">
+       체크한 문항:
+       <span id="finalCheckedCount">
+        0
+       </span>
+       /
+       <span id="resultTotalQuestionCount">
+        0
+       </span>
+      </span>
+      <div class="level-badge" id="finalBadge">
+       🟢 낮음 단계
+      </div>
+     </div>
+    </div>
+    <div class="gauge-container">
+     <div class="gauge-bar">
+      <div class="gauge-fill" id="finalGaugeFill">
+      </div>
+     </div>
+     <div class="gauge-markers">
+      <div class="gauge-marker">
+       0
+      </div>
+      <div class="gauge-marker">
+       30
+      </div>
+      <div class="gauge-marker">
+       45
+      </div>
+      <div class="gauge-marker">
+       60
+      </div>
+      <div class="gauge-marker">
+       75
+      </div>
+      <div class="gauge-marker">
+       100
+      </div>
+     </div>
+    </div>
+    <div class="interpretation-section">
+     <h2 class="section-title">
+      <span class="emoji-icon">
+       🔍
+      </span>
+      결과 해석
+     </h2>
+     <div class="interpretation-content" id="interpretationContent">
+      <p class="interpretation-text" id="interpretationText">
+      </p>
+     </div>
+    </div>
+    <div class="actions">
+     <button class="btn btn-outlined" id="retryBtn">
+      <span class="btn-icon">
+       🔄
+      </span>
+      다시 체크하기
+     </button>
+    </div>
+    <div class="disclaimer">
+     <p>
+      📌 이 계산기는
+      <strong>
+       자가진단 참고 목적
+      </strong>
+      으로만 사용하세요.
+     </p>
+     <p>
+      정신질환 진단이나 전문적인 치료를 대체할 수 없습니다.
+     </p>
+     <p>
+      정확한 진단과 도움이 필요하다면 반드시 전문가와 상담하세요.
+     </p>
+    </div>
+    <div class="watermark">
+     Powered by 나르시시스트닷컴
+    </div>
+   </div>
+  </section>
+  <div class="status-message" id="statusMessage">
+   메시지
+  </div>
+  <script>
+   // ===== 데이터 정의 =====
+    const questions = [
+      { id: 'q1', emoji: '💔', text: '그 사람만 생각하면 자꾸 <strong>상처받은 일들이 떠오르고</strong>, 마음이 뒤죽박죽 돼.' },
+      { id: 'q2', emoji: '🎯', text: '뭔가 문제가 생기면, 결국엔 <strong>다 내 탓이 돼버려</strong>.' },
+      { id: 'q3', emoji: '😤', text: '내가 힘들다고 말하면, "<strong>너 진짜 예민하다</strong>"는 말이 먼저 돌아와.' },
+      { id: 'q4', emoji: '🙇', text: '늘 그 사람 감정이 우선이고, <strong>내 감정은 그냥 무시당하는 느낌</strong>이야.' },
+      { id: 'q5', emoji: '🧊', text: '자꾸 <strong>죄책감 들게 만드는</strong> 말과 행동을 해.' },
+      { id: 'q6', emoji: '😒', text: '칭찬이나 관심 못 받으면 되게 <strong>예민하고 날카로워져</strong>.' },
+      { id: 'q7', emoji: '💣', text: '내가 조금만 지적해도, <strong>갑자기 화를 내거나 분위기를 망쳐</strong>.' },
+      { id: 'q8', emoji: '🎭', text: '그 사람 옆에 있으면, <strong>내가 괜히 잘못한 것처럼 느껴져</strong>.' },
+      { id: 'q9', emoji: '👀', text: '내가 잘되거나 인정받는 상황에서는 <strong>이상하게 불편해하거나 질투해</strong>.' },
+      { id: 'q10', emoji: '🧮', text: '진심으로 날 아끼는 게 아니라, <strong>자기 이득 때문에</strong> 나랑 있는 것 같아.' },
+      { id: 'q11', emoji: '🗯️', text: '예전에 했던 내 말이나 감정을 <strong>꼬아서 공격</strong>하는 데 써.' },
+      { id: 'q12', emoji: '📵', text: '별말 없이 <strong>연락 끊거나 쌩하게 굴어서</strong> 괜히 내가 불안해져.' },
+      { id: 'q13', emoji: '🌀', text: '사실을 자기 입맛대로 바꿔서, <strong>내 기억을 헷갈리게 만들 때</strong>가 있어.' },
+      { id: 'q14', emoji: '🎭', text: '상처 줘놓고도, <strong>자기가 피해자인 척</strong>하면서 동정을 유도해.' },
+      { id: 'q15', emoji: '🧸', text: '처음엔 너무 완벽해 보였는데, <strong>지금은 전혀 딴사람 같아</strong>.' },
+      { id: 'q16', emoji: '🪞', text: '이 관계 안에서 <strong>자존감이 점점 바닥나고</strong> 있어.' },
+      { id: 'q17', emoji: '🥇', text: '나랑 <strong>경쟁하려는 느낌</strong>이 들고, 항상 우위에 서려 해.' },
+      { id: 'q18', emoji: '🧲', text: '감정적으로 거리를 두거나 무시해서, <strong>날 조종하려는 기분</strong>이 들어.' },
+      { id: 'q19', emoji: '🌫️', text: '<strong>같이 있어도 외롭고</strong>, 내 편은 하나도 없는 느낌이야.' },
+      { id: 'q20', emoji: '🚨', text: '계속 이렇게 가면… <strong>내가 완전히 무너질 것 같은 불안감</strong>이 들어.' }
+    ];
+
+    const scoreLevels = [
+      { maxScore: 29, label: '낮음', emoji: '🟢', badgeClass: 'low', gaugeColor: 'var(--success-color)', interpretationBgColor: 'rgba(46, 204, 113, 0.05)', borderColor: 'rgba(46, 204, 113, 0.3)', message: `👉 감정적으로 큰 위협은 보이지 않아요.<br>지금 관계는 전반적으로 <strong>안정적</strong>이고, 나를 존중받고 있다는 감각도 유지되고 있는 편이에요.<br><br>다만, 가벼운 갈등이나 불편이 있다면 무시하지 말고 <strong>차근차근 대화</strong>로 풀어가는 습관을 들이면 좋겠습니다.` },
+      { maxScore: 44, label: '경계', emoji: '🟡', badgeClass: 'caution', gaugeColor: 'var(--warning-color)', interpretationBgColor: 'rgba(241, 196, 15, 0.05)', borderColor: 'rgba(241, 196, 15, 0.3)', message: `👉 겉으론 평온해 보여도, 살짝씩 <strong>조종</strong>당하거나 <strong>무시당하는</strong> 기분이 들 수 있어요.<br><br>내가 너무 예민한 건가? 라고 혼동된다면, 지금이 <strong>심리적 거리</strong>를 두고 관계를 객관적으로 점검해볼 시점일 수 있어요.` },
+      { maxScore: 59, label: '주의', emoji: '🟠', badgeClass: 'warning', gaugeColor: 'var(--alert-color)', interpretationBgColor: 'rgba(230, 126, 34, 0.05)', borderColor: 'rgba(230, 126, 34, 0.3)', message: `👉 이제는 꽤나 <strong>이상신호</strong>가 뚜렷하게 나타나는 편입니다.<br>내 감정이 자주 무시되거나, <strong>죄책감</strong>이 반복적으로 드는 관계일 수 있어요.<br><br>이런 상황이 지속되면, <strong>정서적 소진</strong>이 빨라질 수 있으니 외부 도움이나 관계 조정을 진지하게 고민해 보세요.` },
+      { maxScore: 74, label: '위험', emoji: '🔴', badgeClass: 'danger', gaugeColor: 'var(--danger-color)', interpretationBgColor: 'rgba(231, 76, 60, 0.05)', borderColor: 'rgba(231, 76, 60, 0.3)', message: `👉 지금 이 관계는 <strong>'심리적 통제'</strong>와 <strong>'감정적 착취'</strong>가 섞여 있을 가능성이 큽니다.<br><br>내가 문제가 있어서가 아니라, 상대가 <strong>의도적으로</strong> 나를 낮추거나 스스로를 과하게 높이는 패턴일 수 있어요.<br><br><strong>자기 보호</strong>와 <strong>경계 설정(선 긋기)</strong>을 명확히 해야 할 때입니다. 신뢰할 수 있는 사람과 상의해보세요.` },
+      { maxScore: 100, label: '매우 위험', emoji: '🚨', badgeClass: 'critical', gaugeColor: 'var(--critical-color)', interpretationBgColor: 'rgba(192, 57, 43, 0.05)', borderColor: 'rgba(192, 57, 43, 0.3)', message: `👉 <strong>심각한 정서적 착취</strong>나 학대가 의심되는 상황일 수 있습니다.<br>내 자존감이 빠르게 무너지고, 감정적으로 고립되어 혼란스러울 수 있습니다.<br><br>안전과 정신건강을 위해서라도, 가능한 빨리 <strong>전문가의 도움</strong>(상담사, 정신과 의사 등)을 받거나 <strong>안전한 환경</strong>으로 벗어나는 것을 고려해야 합니다. 혼자 힘들어하지 마세요.` }
+    ];
+
+    // ===== 요소 선택 =====
+    const questionsSection = document.getElementById('questionsSectionWrapper');
+    const resultSection = document.getElementById('resultSectionWrapper');
+    const questionsListContainer = document.querySelector('.questions-list');
+    const loadingMessage = document.getElementById('loadingMessage');
+    const totalQuestionCountEl = document.getElementById('totalQuestionCount');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const finalScoreEl = document.getElementById('finalScore');
+    const finalCheckedCountEl = document.getElementById('finalCheckedCount');
+    const resultTotalQuestionCountEl = document.getElementById('resultTotalQuestionCount');
+    const finalBadgeEl = document.getElementById('finalBadge');
+    const finalGaugeFill = document.getElementById('finalGaugeFill');
+    const interpretationContent = document.getElementById('interpretationContent');
+    const interpretationText = document.getElementById('interpretationText');
+    const retryBtn = document.getElementById('retryBtn');
+    const saveImageBtn = document.getElementById('saveImageBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    // ===== 함수 정의 =====
+    function showStatusMessage(message, duration = 2000) {
+      statusMessage.textContent = message;
+      statusMessage.classList.add('show');
+      setTimeout(() => statusMessage.classList.remove('show'), duration);
+    }
+
+    function handleCheckboxChange(event) {
+      const checkbox = event.target;
+      const questionItem = checkbox.closest('.question-item');
+      if (!questionItem) return;
+      if (checkbox.checked) {
+        questionItem.style.borderLeft = '4px solid var(--primary-color)';
+        questionItem.style.backgroundColor = '#ede8f6';
+      } else {
+        questionItem.style.borderLeft = '0px solid var(--primary-color)';
+        questionItem.style.backgroundColor = 'var(--primary-lighter)';
+      }
+    }
+
+    function attachCheckboxListeners() {
+      const checkboxes = questionsListContainer.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.removeEventListener('change', handleCheckboxChange);
+        checkbox.addEventListener('change', handleCheckboxChange);
+      });
+    }
+
+    function renderQuestions() {
+      questionsListContainer.innerHTML = '';
+      totalQuestionCountEl.textContent = questions.length;
+      if (questions.length === 0) {
+          loadingMessage.textContent = "질문 목록이 없습니다.";
+          loadingMessage.style.display = 'block';
+          return;
+      }
+      loadingMessage.style.display = 'none';
+      questions.forEach((q, index) => {
+        const questionId = `q${index + 1}`;
+        const labelId = `label-for-${questionId}`;
+        const questionElement = document.createElement('div');
+        questionElement.className = 'question-item staggered-fade-in';
+        questionElement.innerHTML = `
+          <label for="${questionId}" id="${labelId}">
+            <div class="question-text">
+              <span class="emoji-icon" aria-hidden="true">${q.emoji}</span> ${q.text}
+            </div>
+            <input type="checkbox" id="${questionId}" aria-labelledby="${labelId}" data-question-id="${q.id}" />
+          </label>
+        `;
+        questionsListContainer.appendChild(questionElement);
+      });
+      attachCheckboxListeners();
+    }
+
+    calculateBtn.addEventListener('click', () => {
+      calculateBtn.classList.add('animate__animated', 'animate__pulse');
+      setTimeout(() => calculateBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
+      const checkboxes = questionsListContainer.querySelectorAll('input[type="checkbox"]:checked');
+      const checkedCount = checkboxes.length;
+      const score = checkedCount * 5;
+      const currentLevel = scoreLevels.find(level => score <= level.maxScore);
+      if (!currentLevel) {
+          console.error("점수 레벨을 찾을 수 없습니다.", score);
+          showStatusMessage("오류가 발생했습니다. 다시 시도해주세요.");
+          return;
+      }
+      finalScoreEl.innerHTML = `${score}<span class="score-value-text">점</span>`;
+      finalCheckedCountEl.textContent = checkedCount;
+      resultTotalQuestionCountEl.textContent = questions.length;
+      finalBadgeEl.textContent = `${currentLevel.emoji} ${currentLevel.label} 단계`;
+      finalBadgeEl.className = `level-badge ${currentLevel.badgeClass}`;
+      finalGaugeFill.style.width = `${score}%`;
+      finalGaugeFill.style.backgroundColor = currentLevel.gaugeColor;
+      finalGaugeFill.style.backgroundImage = `linear-gradient(90deg, ${currentLevel.gaugeColor}, ${currentLevel.gaugeColor})`;
+      interpretationText.innerHTML = currentLevel.message;
+      interpretationContent.style.backgroundColor = currentLevel.interpretationBgColor;
+      interpretationContent.style.borderColor = currentLevel.borderColor;
+      questionsSection.classList.remove('animate__fadeIn');
+      questionsSection.classList.add('animate__animated', 'animate__fadeOut');
+      setTimeout(() => {
+        questionsSection.style.display = 'none';
+        resultSection.style.display = 'block';
+        resultSection.classList.add('animate__animated', 'animate__fadeIn');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 500);
+    });
+
+    retryBtn.addEventListener('click', () => {
+      questionsListContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      questionsListContainer.querySelectorAll('.question-item').forEach(item => {
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          if (checkbox) {
+              item.style.borderLeft = '0px solid var(--primary-color)';
+              item.style.backgroundColor = 'var(--primary-lighter)';
+          }
+      });
+      resultSection.classList.remove('animate__fadeIn');
+      resultSection.classList.add('animate__animated', 'animate__fadeOut');
+      setTimeout(() => {
+        resultSection.style.display = 'none';
+        questionsSection.style.display = 'block';
+        questionsSection.classList.remove('animate__fadeOut');
+        questionsSection.classList.add('animate__animated', 'animate__fadeIn');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 500);
+    });
+
+    if (saveImageBtn) {
+      saveImageBtn.addEventListener('click', () => {
+        saveImageBtn.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => saveImageBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
+        const resultCard = resultSection.querySelector('.result-card');
+        if (!resultCard) {
+          showStatusMessage("이미지 저장 오류: 결과 카드를 찾을 수 없습니다.");
+          return;
+        }
+        showStatusMessage("이미지 생성 중...", 5000);
+        html2canvas(resultCard, {
+          scale: 2,
+          backgroundColor: getComputedStyle(document.body).backgroundColor || '#f7f7f7',
+          logging: false,
+          useCORS: true,
+          onclone: (document) => {
+            const watermark = document.querySelector('.watermark');
+            if (watermark) watermark.style.display = 'none';
+          }
+        }).then(canvas => {
+          const link = document.createElement('a');
+          const date = new Date();
+          const filename = `나르시시스트_테스트_결과_${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}.png`;
+          link.download = filename;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          showStatusMessage('이미지가 저장되었습니다!');
+        }).catch(err => {
+          console.error("html2canvas 오류:", err);
+          showStatusMessage("이미지 저장 중 오류가 발생했습니다.");
+        });
+      });
+    }
+
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        shareBtn.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => shareBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
+        const scoreText = finalScoreEl.textContent || "0점";
+        const scoreValue = parseInt(scoreText, 10);
+        const levelText = finalBadgeEl.textContent || "정보 없음";
+        const checkedCount = finalCheckedCountEl.textContent || "0";
+        const totalCount = resultTotalQuestionCountEl.textContent || questions.length;
+        const currentLevel = scoreLevels.find(level => scoreValue <= level.maxScore);
+        let resultMessage = currentLevel ? currentLevel.message.split('<br>')[0].replace(/<[^>]*>?/gm, '') : "결과를 확인해보세요.";
+        const shareText = `[나르시시스트 테스트 결과]\n\n` +
+            `📊 제 점수는 ${scoreValue}점 / 100점 (${levelText}) 입니다.\n` +
+            `👉 체크한 문항: ${checkedCount} / ${totalCount}개\n\n` +
+            `${resultMessage}\n\n` +
+            `자세한 내용은 아래 링크에서 확인해보세요!\n` +
+            `${window.location.href}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(shareText).then(() => {
+                showStatusMessage('결과가 클립보드에 복사되었습니다!');
+            }, (err) => {
+                console.error("클립보드 복사 실패:", err);
+                showStatusMessage('결과 복사에 실패했습니다. 수동으로 복사해주세요.');
+            });
+        } else {
+            showStatusMessage('클립보드 복사가 지원되지 않는 환경입니다.');
+        }
+      });
+    }
+
+    renderQuestions();
+  </script>
+ </body>
+</html>
