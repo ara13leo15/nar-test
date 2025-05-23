@@ -1,792 +1,2109 @@
 <!DOCTYPE html>
 <html lang="ko">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   나르시시스트 테스트 | 나르시시스트닷컴
-  </title>
-  <meta content="나르시시스트 테스트를 통해 당신의 관계 건강도를 점검하고 회복 단계를 확인해보세요. 간단한 체크리스트로 심리 상태를 파악할 수 있습니다." name="description"/>
-  <meta content="나르시시스트, 계산기, 자가진단, 관계, 심리테스트, 정서적 학대, 가스라이팅, 심리 건강" name="keywords"/>
-  <meta content="website" property="og:type"/>
-  <meta content="https://your-narcissist-calculator-url.com/" property="og:url"/>
-  <meta content="나르시시스트 테스트 - 당신의 관계 건강도는?" property="og:title"/>
-  <meta content="간단한 체크리스트로 당신의 관계 건강도를 점검하고 나르시시스트 성향에 대해 알아보세요." property="og:description"/>
-  <meta content="https://your-narcissist-calculator-url.com/images/og-calculator-preview.png" property="og:image"/>
-  <meta content="1200" property="og:image:width"/>
-  <meta content="630" property="og:image:height"/>
-  <meta content="나르시시스트 테스트" property="og:site_name"/>
-  <meta content="ko_KR" property="og:locale"/>
-  <meta content="summary_large_image" property="twitter:card"/>
-  <meta content="https://your-narcissist-calculator-url.com/" property="twitter:url"/>
-  <meta content="나르시시스트 테스트 - 당신의 관계 건강도는?" property="twitter:title"/>
-  <meta content="간단한 체크리스트로 당신의 관계 건강도를 점검하고 나르시시스트 성향에 대해 알아보세요." property="twitter:description"/>
-  <meta content="https://your-narcissist-calculator-url.com/images/og-calculator-preview.png" property="twitter:image"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
-  <style>
-   /* ===== 폰트 및 컬러 정의 ===== */
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #f7f7f7;
-      color: #444444;
-      line-height: 1.7;
-      min-height: 100vh;
-      padding: 1rem;
-    }
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="💼 직장에서 사실 vs 해석 구분하기 - 동료, 상사, 고객과의 갈등을 줄이고 원활한 소통을 위한 테스트. 텔레마케팅, 영업, 상담 업무 시 객관적 판단력 향상을 통해 직장 스트레스를 줄여보세요." name="description"/>
+<meta content="직장갈등, 직장소통, 텔레마케팅, 고객상담, 업무스트레스, 동료관계, 상사관계, 사실해석, 갈등해결" name="keywords"/>
+<meta content="직장소통연구소" name="author"/>
+<title>💼 직장에서 사실 vs 해석 구분하기 - 소통과 갈등 해결의 첫걸음</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
     :root {
-      --primary-color: #4B3869;
-      --primary-dark:  #3A2C58;
-      --primary-light: #D5CAE3;
-      --primary-lighter: #F4F1F8;
-      --success-color: #2ecc71;
-      --warning-color: #f1c40f;
-      --alert-color:   #e67e22;
-      --danger-color:  #e74c3c;
-      --critical-color:#c0392b;
-      --card-bg:       #ffffff;
-      --background:    #f7f7f7;
-      --text-main:     #444444;
-      --text-dark:     #333333;
-      --text-secondary:#666666;
-      --text-light:    #999999;
-      --border-light:  #E5E5E5;
+      /* 색상 시스템 */
+      --color-primary: #2E5A87;
+      --color-primary-dark: #1E3F5F;
+      --color-primary-light: #A8C5E0;
+      --color-primary-lighter: #E8F2FF;
+      --color-background: #f7f9fc;
+      --color-text: #444444;
+      --color-text-dark: #333333;
+      --color-text-light: #666666;
+      --color-text-lighter: #999999;
+      --color-border: #e0e0e0;
+      --color-white: #ffffff;
       
-      --spacing-xs: 8px;
-      --spacing-sm: 12px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-xxl: 48px;
+      /* 영역별 테마 색상 */
+      --color-area1: #3B82F6; /* 동료/상사 관계 */
+      --color-area2: #10B981; /* 고객 상담 */
+      --color-area3: #8B5CF6; /* 업무 성과 */
+      --color-area4: #F59E0B; /* 팀워크/소통 */
       
-      --font-base: 17px;
+      /* 알림 색상 */
+      --color-success: #10B981;
+      --color-warning: #F59E0B;
+      --color-danger: #EF4444;
+      
+      /* 여백 시스템 */
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      
+      /* 테두리 반경 */
+      --border-radius: 8px;
+      
+      /* 그림자 효과 */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      
+      /* 전환 효과 */
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.3s ease;
+      
+      /* 타이포그래피 */
+      --font-family: 'Noto Sans KR', sans-serif;
+      --line-height: 1.6;
+      
+      /* 폰트 크기 */
+      --font-base: 16px;
       --font-small: 14px;
       --font-medium: 18px;
-      --font-large: 22px;
-      --font-xlarge: 26px;
-      --font-xxlarge: 32px;
+      --font-large: 20px;
     }
-    /* ===== 기본 레이아웃 및 컨테이너 ===== */
-    .calculator-container, .result-container {
-      max-width: 850px;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--color-text);
+      background-color: var(--color-background);
+    }
+    
+    .container {
+      max-width: 800px;
       margin: 0 auto;
-      background-color: var(--card-bg);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
-      padding: var(--spacing-xl);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: var(--space-md);
     }
-    .calculator-container:hover, .result-container:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.06);
+    
+    @media (max-width: 768px) {
+      .question-container {
+        min-height: 300px;
+      }
     }
-    /* ===== 질문 섹션 ===== */
-    .questions-list {
-      max-height: 70vh;
-      overflow-y: auto;
-      padding-right: 10px;
-      margin-right: -10px;
-      scroll-behavior: smooth;
-      padding-top: var(--spacing-md);
+
+    /* 헤더 스타일 */
+    .header {
+      background: linear-gradient(135deg, var(--color-primary-lighter), #ffffff);
+      color: var(--color-primary);
+      padding: var(--space-xl) 0;
+      margin-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--color-primary-light);
+      text-align: center;
     }
-    .questions-list::-webkit-scrollbar { width: 6px; }
-    .questions-list::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 10px; }
-    .questions-list::-webkit-scrollbar-track { background: rgba(213, 202, 227, 0.1); border-radius: 10px; }
-    .question-item {
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-      padding: var(--spacing-md) var(--spacing-lg);
-      margin-bottom: var(--spacing-md);
-      border-radius: 12px;
-      position: relative;
-      border-left: 0px solid var(--primary-color);
-      background-color: var(--primary-lighter);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    
+    .header h1 {
+      font-size: var(--font-large);
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+      color: var(--color-primary);
     }
-    .question-item:hover {
-      background-color: #ede8f6;
-      border-left: 4px solid var(--primary-color);
-      transform: translateX(2px) scale(1.01);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    
+    .header p {
+      font-size: var(--font-medium);
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--color-text-dark);
+      line-height: 1.8;
     }
-    .question-item label {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text-main);
-      font-weight: 400;
-      cursor: pointer;
+    
+    /* 카드 스타일 */
+    .card {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-lg);
+      overflow: hidden;
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, var(--color-primary-lighter), #ffffff);
+      padding: var(--space-md);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      width: 100%;
+      align-items: center;
     }
-    .emoji-icon {
-      font-size: 1.4rem;
-      margin-right: 0.6rem;
-      display: inline-block;
-      transform: translateY(2px);
-      min-width: 1.4rem;
+    
+    .card-title {
+      font-size: var(--font-medium);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
     }
-    .question-text { flex: 1; }
-    input[type="checkbox"] {
-      width: 24px; height: 24px;
-      accent-color: var(--primary-color);
-      cursor: pointer;
-      border-radius: 6px;
-      margin-left: 14px;
-      margin-top: 0.2rem;
-      transition: all 0.2s ease;
-      position: relative;
+    
+    .card-body {
+      padding: var(--space-lg);
+    }
+    
+    /* 소개 텍스트 */
+    .intro-text {
+      margin-bottom: var(--space-lg);
+      font-size: var(--font-medium);
+      color: var(--color-text);
+      line-height: 1.8;
+    }
+    
+    .highlight {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+    
+    /* 문항 스타일 */
+    .question-container {
+      display: none;
+    }
+    
+    .question-container.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .question {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    
+    .question-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      border-radius: 50%;
       flex-shrink: 0;
     }
-    input[type="checkbox"]:checked {
-      transform: scale(1.1);
-      box-shadow: 0 0 0 2px rgba(75, 56, 105, 0.2);
+    
+    .question-title {
+      font-size: var(--font-medium);
+      font-weight: 500;
+      color: var(--color-text-dark);
+      flex-grow: 1;
     }
-    /* ===== 결과 섹션 ===== */
-    .result-container { display: none; }
-    .result-card {
-      background-color: var(--card-bg);
-      border-radius: 20px;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-                  box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .result-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 6px;
-      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-    }
-    .result-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
-    }
-    .header { text-align: center; margin-bottom: 2.5rem; }
-    .title {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-      position: relative;
-      display: inline-block;
-    }
-    .title::after {
-      content: '';
-      position: absolute;
-      bottom: -8px; left: 50%; transform: translateX(-50%);
-      width: 60px; height: 4px;
-      background-color: var(--primary-color); border-radius: 2px;
-    }
-    .subtitle { font-size: 18px; color: var(--text-secondary); margin-top: 1rem; }
-    .score-section { text-align: center; padding: 2rem 0; }
-    .score-container {
-      background: linear-gradient(135deg, rgba(75, 56, 105, 0.07), rgba(75, 56, 105, 0.03));
-      border-radius: 16px; padding: 2.5rem;
-      display: flex; flex-direction: column; align-items: center;
-      position: relative; border: 1px solid rgba(75, 56, 105, 0.1);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-      animation: fadeInUp 0.8s ease-out;
-    }
-    .score-label { font-size: 18px; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; }
-    .score-value {
-      font-size: 4.5rem; font-weight: 900;
-      background: linear-gradient(45deg, var(--primary-color), #6e5498);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      line-height: 1; margin: 0.5rem 0;
-      position: relative; display: inline-block;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .score-value::after {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 50%; height: 100%;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255, 255, 255, 0) 100%);
-      transform: skewX(-25deg); animation: shine 3s infinite;
-    }
-    @keyframes shine { 0% { left: -100%; } 50%, 100% { left: 100%; } }
-    .score-value-text { font-size: 2rem; color: var(--primary-color); font-weight: 700; }
-    .checked-count { font-size: 17px; color: var(--text-secondary); margin-top: 0.5rem; }
-    .level-badge {
-      margin-top: 1.2rem; font-size: 17px; font-weight: 600;
-      padding: 0.8rem 1.8rem; border-radius: 100px;
-      display: inline-block; animation: pulseBadge 2.5s infinite;
-      border: 1px solid transparent;
-    }
-    .level-badge.low { background-color: rgba(46, 204, 113, 0.1); color: var(--success-color); border-color: rgba(46, 204, 113, 0.3); animation-name: pulseBadgeGreen; }
-    .level-badge.caution { background-color: rgba(241, 196, 15, 0.1); color: var(--warning-color); border-color: rgba(241, 196, 15, 0.3); animation-name: pulseBadgeYellow; }
-    .level-badge.warning { background-color: rgba(230, 126, 34, 0.1); color: var(--alert-color); border-color: rgba(230, 126, 34, 0.3); animation-name: pulseBadgeOrange; }
-    .level-badge.danger { background-color: rgba(231, 76, 60, 0.1); color: var(--danger-color); border-color: rgba(231, 76, 60, 0.3); animation-name: pulseBadgeRed; }
-    .level-badge.critical { background-color: rgba(192, 57, 43, 0.1); color: var(--critical-color); border-color: rgba(192, 57, 43, 0.3); animation-name: pulseBadgeDarkRed; }
-    @keyframes pulseBadgeGreen { 0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
-    @keyframes pulseBadgeYellow { 0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(241, 196, 15, 0); } 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); } }
-    @keyframes pulseBadgeOrange { 0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); } 100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); } }
-    @keyframes pulseBadgeRed { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
-    @keyframes pulseBadgeDarkRed { 0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.3); } 70% { box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); } 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); } }
-    .gauge-container { width: 100%; margin: 2.5rem 0; }
-    .gauge-bar { height: 12px; background-color: var(--border-light); border-radius: 100px; position: relative; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06); }
-    .gauge-fill { height: 100%; border-radius: 100px; width: 0%; background: linear-gradient(90deg, var(--danger-color), #e74c3c); position: relative; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 1s ease, background-image 1s ease; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
-    .gauge-markers { position: relative; width: 100%; height: 30px; margin-top: 10px; display: flex; justify-content: space-between; }
-    .gauge-marker { position: relative; display: flex; flex-direction: column; align-items: center; width: 2px; font-size: 14px; color: var(--text-secondary); }
-    .gauge-marker::before { content: ''; width: 2px; height: 8px; background-color: #d1d5db; margin-bottom: 4px; }
-    .interpretation-section { margin: 2.5rem 0; animation: fadeIn 1s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .section-title {
-      font-size: 22px; font-weight: 600; margin-bottom: 1.5rem; position: relative; padding-left: 1rem;
-      display: flex; align-items: center; color: var(--primary-color);
-    }
-    .section-title::before {
-      content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-      width: 4px; height: 24px; background-color: var(--primary-color); border-radius: 2px;
-    }
-    .interpretation-content {
-      background-color: var(--primary-lighter);
-      padding: 2rem; border-radius: 16px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(213, 202, 227, 0.3);
-      transition: all 0.3s ease;
-    }
-    .interpretation-content:hover { box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04); transform: translateY(-2px); }
-    .interpretation-text { font-size: 18px; line-height: 1.8; color: var(--text-main); }
-    .interpretation-text strong { color: var(--primary-dark); font-weight: 600; }
-    .actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-    .btn {
-      padding: 0.9rem 1.8rem; 
-      border-radius: 100px; 
-      font-size: 17px; 
-      font-weight: 600; 
-      cursor: pointer;
-      transition: all 0.3s ease; 
-      display: inline-flex; 
-      align-items: center; 
+
+    /* O/X 선택 옵션 */
+    .ox-options {
+      display: flex;
+      gap: var(--space-md);
+      margin: var(--space-md) 0;
       justify-content: center;
-      text-decoration: none; 
-      border: none; 
-      outline: none; 
-      min-width: 180px;
     }
-    .btn-primary { background-color: var(--primary-color); color: white; box-shadow: 0 4px 14px rgba(75, 56, 105, 0.3); }
-    .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(75, 56, 105, 0.4); }
-    .btn-primary:active { transform: translateY(-1px) scale(0.98); }
-    .btn-outlined { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-    .btn-outlined:hover { background-color: rgba(75, 56, 105, 0.05); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(75, 56, 105, 0.15); }
-    .btn-secondary { background-color: #f3f4f6; color: var(--text-secondary); }
-    .btn-secondary:hover { background-color: #e5e7eb; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
-    .btn-icon { margin-right: 0.5rem; font-size: 1.1em; }
-    .btn-icon-only {
-        width: 50px; height: 50px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        background-color: #f3f4f6; font-size: 22px; cursor: pointer; margin: 0 10px;
-        padding: 0; min-width: auto;
-        transition: all 0.3s ease;
+    
+    .ox-option {
+      flex: 1;
+      max-width: 150px;
     }
-    .btn-icon-only:hover { background-color: #e5e7eb; transform: translateY(-2px); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
-    .disclaimer {
-      text-align: center; 
-      margin-top: 2.5rem; 
-      font-size: 14px; 
-      color: var(--text-secondary); 
-      padding: 1.2rem;
-      background-color: rgba(75, 56, 105, 0.05); 
-      border-radius: 12px; 
-      border: 1px solid rgba(75, 56, 105, 0.1);
-    }
-    .disclaimer strong { color: var(--text-main); font-weight: 500; }
-    .watermark { position: absolute; bottom: 1rem; right: 1rem; font-size: 14px; color: var(--text-light); opacity: 0.7; }
-    .additional-links { text-align: center; margin-top: 20px; }
-    .additional-link { color: var(--primary-color); text-decoration: none; margin: 0 15px; font-size: 16px; transition: color 0.2s ease; }
-    .additional-link:hover { color: var(--primary-dark); text-decoration: underline; }
-    .main-button {
-      background-color: var(--primary-color); 
-      color: white; 
-      font-weight: 600; 
-      font-size: 17px;
-      padding: 1rem 2.5rem; 
-      border-radius: 100px;
-      box-shadow: 0 4px 15px rgba(75, 56, 105, 0.35); 
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-      width: 100%; 
-      max-width: 400px; 
-      letter-spacing: 0.5px; 
-      position: relative; 
-      overflow: hidden; 
-      border: none; 
+    
+    .ox-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      border: 2px solid var(--color-border);
+      border-radius: var(--border-radius);
       cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+      height: 100%;
+      font-size: 24px;
+      font-weight: 700;
     }
-    .main-button:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(75, 56, 105, 0.45); }
-    .main-button:active { transform: translateY(-1px) scale(0.98); }
-    .main-button::after {
-      content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
-      background-color: rgba(255, 255, 255, 0.4); border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0); opacity: 0; transition: transform 0.6s, opacity 0.6s;
+    
+    .ox-label:hover {
+      background-color: var(--color-primary-lighter);
+      border-color: var(--color-primary-light);
+      transform: translateY(-2px);
     }
-    .main-button:hover::after { transform: translate(-50%, -50%) scale(200); opacity: 0.2; }
-    .pulse-animation { animation: pulse 2.5s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(75, 56, 105, 0.4); } 70% { box-shadow: 0 0 0 12px rgba(75, 56, 105, 0); } 100% { box-shadow: 0 0 0 0 rgba(75, 56, 105, 0); } }
-    .status-message {
-      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-      background-color: var(--primary-color); color: white; padding: 12px 24px; border-radius: 100px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); z-index: 1000; opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease; font-size: 14px; font-weight: 500; pointer-events: none;
+    
+    input[type="radio"] {
+      display: none;
     }
-    .status-message.show { opacity: 1; transform: translate(-50%, -10px); }
-    .staggered-fade-in { opacity: 0; transform: translateY(10px); animation: staggerFadeIn 0.5s ease forwards; }
-    @keyframes staggerFadeIn { to { opacity: 1; transform: translateY(0); } }
-    .main-button:focus-visible,
-    .btn:focus-visible,
-    .btn-icon-only:focus-visible,
-    input[type="checkbox"]:focus-visible,
-    .additional-link:focus-visible {
-      outline: 3px solid var(--primary-light);
-      outline-offset: 2px;
-      box-shadow: 0 0 0 4px rgba(75, 56, 105, 0.3);
-      border-radius: 6px;
-    }
-    .main-button:focus-visible, .btn:focus-visible, .btn-icon-only:focus-visible { border-radius: 100px; }
-    @media (max-width: 768px) {
-      .calculator-container, .result-card { padding: 1.5rem; }
-      .title { font-size: 24px; }
-      .score-value { font-size: 3.5rem; }
-      .score-container { padding: 1.5rem; }
-      .section-title { font-size: 20px; }
-      .interpretation-text { font-size: 17px; line-height: 1.8; color: var(--text-main); }
-      .actions { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 300px; }
-    }
-    @media (max-width: 480px) {
-      body { padding: 0.5rem; }
-      .calculator-container, .result-card { padding: 1rem; border-radius: 16px; }
-      .question-item { padding: var(--spacing-sm) var(--spacing-md); }
-      .title { font-size: 22px; }
-      .subtitle { font-size: 16px; }
-      .score-value { font-size: 3rem; }
-      .interpretation-content { padding: 1.5rem; }
-    }
-    :root {
-      --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      --highlight-bar: linear-gradient(to right, var(--primary-color), var(--primary-light));
-      --shadow-deep: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
-    .title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--highlight-bar);
-      margin: 12px auto 0;
-      border-radius: 2px;
-    }
-    .main-button:hover,
-    .btn-primary:hover {
-      transform: scale(1.03);
-      box-shadow: var(--shadow-deep);
-      transition: var(--transition-spring);
-    }
-    .main-button:active,
-    .btn-primary:active {
-      transform: scale(0.97);
-    }
-    .calculator-container:hover,
-    .result-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      transition: var(--transition-spring);
-    }
-    .gauge-fill {
-      transition: width 1.8s var(--transition-spring);
-    }
-    .score-value {
-      animation: fadeInUp 0.8s ease-out;
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .btn-icon-only:hover {
+    
+    input[type="radio"]:checked + .ox-label {
+      background-color: var(--color-primary-lighter);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(46, 90, 135, 0.2);
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    .interpretation-content {
-      animation: fadeInScale 0.6s ease-out;
+    
+    .ox-description {
+      margin-top: var(--space-xs);
+      font-size: var(--font-small);
+      text-align: center;
     }
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    
+    /* 네비게이션 버튼 */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--space-xl);
     }
-  </style>
- </head>
- <body>
-  <section aria-labelledby="calculatorTitle" class="calculator-container animate__animated animate__fadeIn" id="questionsSectionWrapper">
-   <h1 class="title text-center mb-3" id="calculatorTitle" style="text-align: center; width: 100%; display: block;">
-    💬 나르시시스트 테스트
-   </h1>
-   <p class="subtitle text-center mb-8" style="text-align: center;">
-    📌 아래 문항 중
-    <span class="font-semibold" style="color: var(--primary-color);">
-     해당되는 것에 체크
-    </span>
-    해 주세요. (총
-    <span id="totalQuestionCount">
-     0
-    </span>
-    문항)
-   </p>
-   <div class="questions-list space-y-4 mb-12">
-    <p class="text-center text-gray-500" id="loadingMessage">
-     질문 목록을 불러오는 중입니다...
-    </p>
-   </div>
-   <div class="flex justify-center mt-12">
-    <div style="display: flex; justify-content: center; margin-top: 48px; margin-bottom: 32px;">
-     <button class="main-button pulse-animation" id="calculateBtn">
-      💡 내 점수 확인하기 ▶
-     </button>
-    </div>
-   </div>
-   <div class="disclaimer mt-8 opacity-80">
-    <p>
-     ✓ 모든 문항은
-     <strong>
-      개인 심리 체크
-     </strong>
-     를 위한 것으로, 체크된 항목은 외부에 저장되지 않습니다.
-    </p>
-   </div>
-  </section>
-  <section aria-labelledby="resultTitle" class="result-container animate__animated" id="resultSectionWrapper" style="display: none;">
-   <div class="result-card animate__animated">
-    <div class="header">
-     <h1 class="title" id="resultTitle">
-      나르시시스트 테스트 결과
-     </h1>
-     <p class="subtitle">
-      당신의 관계 건강도를 확인해보세요
-     </p>
-    </div>
-    <div class="score-section">
-     <div class="score-container">
-      <span class="score-label">
-       당신의 점수는
-      </span>
-      <div class="score-value" id="finalScore">
-       0
-       <span class="score-value-text">
-        점
-       </span>
-      </div>
-      <span class="checked-count">
-       체크한 문항:
-       <span id="finalCheckedCount">
-        0
-       </span>
-       /
-       <span id="resultTotalQuestionCount">
-        0
-       </span>
-      </span>
-      <div class="level-badge" id="finalBadge">
-       🟢 낮음 단계
-      </div>
-     </div>
-    </div>
-    <div class="gauge-container">
-     <div class="gauge-bar">
-      <div class="gauge-fill" id="finalGaugeFill">
-      </div>
-     </div>
-     <div class="gauge-markers">
-      <div class="gauge-marker">
-       0
-      </div>
-      <div class="gauge-marker">
-       30
-      </div>
-      <div class="gauge-marker">
-       45
-      </div>
-      <div class="gauge-marker">
-       60
-      </div>
-      <div class="gauge-marker">
-       75
-      </div>
-      <div class="gauge-marker">
-       100
-      </div>
-     </div>
-    </div>
-    <div class="interpretation-section">
-     <h2 class="section-title">
-      <span class="emoji-icon">
-       🔍
-      </span>
-      결과 해석
-     </h2>
-     <div class="interpretation-content" id="interpretationContent">
-      <p class="interpretation-text" id="interpretationText">
-      </p>
-     </div>
-    </div>
-    <div class="actions">
-     <button class="btn btn-outlined" id="retryBtn">
-      <span class="btn-icon">
-       🔄
-      </span>
-      다시 체크하기
-     </button>
-    </div>
-    <div class="disclaimer">
-     <p>
-      📌 이 계산기는
-      <strong>
-       자가진단 참고 목적
-      </strong>
-      으로만 사용하세요.
-     </p>
-     <p>
-      정신질환 진단이나 전문적인 치료를 대체할 수 없습니다.
-     </p>
-     <p>
-      정확한 진단과 도움이 필요하다면 반드시 전문가와 상담하세요.
-     </p>
-    </div>
-    <div class="watermark">
-     Powered by 나르시시스트닷컴
-    </div>
-   </div>
-  </section>
-  <div class="status-message" id="statusMessage">
-   메시지
-  </div>
-  <script>
-   // ===== 데이터 정의 =====
-    const questions = [
-      { id: 'q1', emoji: '💔', text: '그 사람만 생각하면 자꾸 <strong>상처받은 일들이 떠오르고</strong>, 마음이 뒤죽박죽 돼.' },
-      { id: 'q2', emoji: '🎯', text: '뭔가 문제가 생기면, 결국엔 <strong>다 내 탓이 돼버려</strong>.' },
-      { id: 'q3', emoji: '😤', text: '내가 힘들다고 말하면, "<strong>너 진짜 예민하다</strong>"는 말이 먼저 돌아와.' },
-      { id: 'q4', emoji: '🙇', text: '늘 그 사람 감정이 우선이고, <strong>내 감정은 그냥 무시당하는 느낌</strong>이야.' },
-      { id: 'q5', emoji: '🧊', text: '자꾸 <strong>죄책감 들게 만드는</strong> 말과 행동을 해.' },
-      { id: 'q6', emoji: '😒', text: '칭찬이나 관심 못 받으면 되게 <strong>예민하고 날카로워져</strong>.' },
-      { id: 'q7', emoji: '💣', text: '내가 조금만 지적해도, <strong>갑자기 화를 내거나 분위기를 망쳐</strong>.' },
-      { id: 'q8', emoji: '🎭', text: '그 사람 옆에 있으면, <strong>내가 괜히 잘못한 것처럼 느껴져</strong>.' },
-      { id: 'q9', emoji: '👀', text: '내가 잘되거나 인정받는 상황에서는 <strong>이상하게 불편해하거나 질투해</strong>.' },
-      { id: 'q10', emoji: '🧮', text: '진심으로 날 아끼는 게 아니라, <strong>자기 이득 때문에</strong> 나랑 있는 것 같아.' },
-      { id: 'q11', emoji: '🗯️', text: '예전에 했던 내 말이나 감정을 <strong>꼬아서 공격</strong>하는 데 써.' },
-      { id: 'q12', emoji: '📵', text: '별말 없이 <strong>연락 끊거나 쌩하게 굴어서</strong> 괜히 내가 불안해져.' },
-      { id: 'q13', emoji: '🌀', text: '사실을 자기 입맛대로 바꿔서, <strong>내 기억을 헷갈리게 만들 때</strong>가 있어.' },
-      { id: 'q14', emoji: '🎭', text: '상처 줘놓고도, <strong>자기가 피해자인 척</strong>하면서 동정을 유도해.' },
-      { id: 'q15', emoji: '🧸', text: '처음엔 너무 완벽해 보였는데, <strong>지금은 전혀 딴사람 같아</strong>.' },
-      { id: 'q16', emoji: '🪞', text: '이 관계 안에서 <strong>자존감이 점점 바닥나고</strong> 있어.' },
-      { id: 'q17', emoji: '🥇', text: '나랑 <strong>경쟁하려는 느낌</strong>이 들고, 항상 우위에 서려 해.' },
-      { id: 'q18', emoji: '🧲', text: '감정적으로 거리를 두거나 무시해서, <strong>날 조종하려는 기분</strong>이 들어.' },
-      { id: 'q19', emoji: '🌫️', text: '<strong>같이 있어도 외롭고</strong>, 내 편은 하나도 없는 느낌이야.' },
-      { id: 'q20', emoji: '🚨', text: '계속 이렇게 가면… <strong>내가 완전히 무너질 것 같은 불안감</strong>이 들어.' }
-    ];
-
-    const scoreLevels = [
-      { maxScore: 29, label: '낮음', emoji: '🟢', badgeClass: 'low', gaugeColor: 'var(--success-color)', interpretationBgColor: 'rgba(46, 204, 113, 0.05)', borderColor: 'rgba(46, 204, 113, 0.3)', message: `👉 감정적으로 큰 위협은 보이지 않아요.<br>지금 관계는 전반적으로 <strong>안정적</strong>이고, 나를 존중받고 있다는 감각도 유지되고 있는 편이에요.<br><br>다만, 가벼운 갈등이나 불편이 있다면 무시하지 말고 <strong>차근차근 대화</strong>로 풀어가는 습관을 들이면 좋겠습니다.` },
-      { maxScore: 44, label: '경계', emoji: '🟡', badgeClass: 'caution', gaugeColor: 'var(--warning-color)', interpretationBgColor: 'rgba(241, 196, 15, 0.05)', borderColor: 'rgba(241, 196, 15, 0.3)', message: `👉 겉으론 평온해 보여도, 살짝씩 <strong>조종</strong>당하거나 <strong>무시당하는</strong> 기분이 들 수 있어요.<br><br>내가 너무 예민한 건가? 라고 혼동된다면, 지금이 <strong>심리적 거리</strong>를 두고 관계를 객관적으로 점검해볼 시점일 수 있어요.` },
-      { maxScore: 59, label: '주의', emoji: '🟠', badgeClass: 'warning', gaugeColor: 'var(--alert-color)', interpretationBgColor: 'rgba(230, 126, 34, 0.05)', borderColor: 'rgba(230, 126, 34, 0.3)', message: `👉 이제는 꽤나 <strong>이상신호</strong>가 뚜렷하게 나타나는 편입니다.<br>내 감정이 자주 무시되거나, <strong>죄책감</strong>이 반복적으로 드는 관계일 수 있어요.<br><br>이런 상황이 지속되면, <strong>정서적 소진</strong>이 빨라질 수 있으니 외부 도움이나 관계 조정을 진지하게 고민해 보세요.` },
-      { maxScore: 74, label: '위험', emoji: '🔴', badgeClass: 'danger', gaugeColor: 'var(--danger-color)', interpretationBgColor: 'rgba(231, 76, 60, 0.05)', borderColor: 'rgba(231, 76, 60, 0.3)', message: `👉 지금 이 관계는 <strong>'심리적 통제'</strong>와 <strong>'감정적 착취'</strong>가 섞여 있을 가능성이 큽니다.<br><br>내가 문제가 있어서가 아니라, 상대가 <strong>의도적으로</strong> 나를 낮추거나 스스로를 과하게 높이는 패턴일 수 있어요.<br><br><strong>자기 보호</strong>와 <strong>경계 설정(선 긋기)</strong>을 명확히 해야 할 때입니다. 신뢰할 수 있는 사람과 상의해보세요.` },
-      { maxScore: 100, label: '매우 위험', emoji: '🚨', badgeClass: 'critical', gaugeColor: 'var(--critical-color)', interpretationBgColor: 'rgba(192, 57, 43, 0.05)', borderColor: 'rgba(192, 57, 43, 0.3)', message: `👉 <strong>심각한 정서적 착취</strong>나 학대가 의심되는 상황일 수 있습니다.<br>내 자존감이 빠르게 무너지고, 감정적으로 고립되어 혼란스러울 수 있습니다.<br><br>안전과 정신건강을 위해서라도, 가능한 빨리 <strong>전문가의 도움</strong>(상담사, 정신과 의사 등)을 받거나 <strong>안전한 환경</strong>으로 벗어나는 것을 고려해야 합니다. 혼자 힘들어하지 마세요.` }
-    ];
-
-    // ===== 요소 선택 =====
-    const questionsSection = document.getElementById('questionsSectionWrapper');
-    const resultSection = document.getElementById('resultSectionWrapper');
-    const questionsListContainer = document.querySelector('.questions-list');
-    const loadingMessage = document.getElementById('loadingMessage');
-    const totalQuestionCountEl = document.getElementById('totalQuestionCount');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const finalScoreEl = document.getElementById('finalScore');
-    const finalCheckedCountEl = document.getElementById('finalCheckedCount');
-    const resultTotalQuestionCountEl = document.getElementById('resultTotalQuestionCount');
-    const finalBadgeEl = document.getElementById('finalBadge');
-    const finalGaugeFill = document.getElementById('finalGaugeFill');
-    const interpretationContent = document.getElementById('interpretationContent');
-    const interpretationText = document.getElementById('interpretationText');
-    const retryBtn = document.getElementById('retryBtn');
-    const saveImageBtn = document.getElementById('saveImageBtn');
-    const shareBtn = document.getElementById('shareBtn');
-    const statusMessage = document.getElementById('statusMessage');
-
-    // ===== 함수 정의 =====
-    function showStatusMessage(message, duration = 2000) {
-      statusMessage.textContent = message;
-      statusMessage.classList.add('show');
-      setTimeout(() => statusMessage.classList.remove('show'), duration);
+    
+    .btn {
+      padding: 12px 20px;
+      border-radius: var(--border-radius);
+      border: none;
+      font-size: var(--font-base);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+    }
+    
+    .btn-secondary {
+      background-color: var(--color-background);
+      color: var(--color-text-light);
+      border: 1px solid var(--color-border);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--color-white);
+    }
+    
+    .btn-disabled {
+      background-color: #eee;
+      color: var(--color-text-light);
+      cursor: not-allowed;
+    }
+    
+    /* 진행 표시 바 */
+    .progress-container {
+      height: 8px;
+      width: 100%;
+      background-color: #eee;
+      border-radius: 4px;
+      margin: var(--space-lg) 0;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      width: 5%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    
+    .progress-text {
+      text-align: right;
+      font-size: var(--font-small);
+      color: var(--color-text-light);
+      margin-top: var(--space-xs);
+    }
+    
+    /* 결과 화면 스타일 */
+    .result-container {
+      display: none;
+      padding: var(--space-md);
+    }
+    
+    .result-header {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .result-title {
+      font-size: var(--font-large);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    .result-subtitle {
+      font-size: var(--font-medium);
+      color: var(--color-text-light);
+    }
+    
+    .result-card {
+      padding: var(--space-lg);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-xl); 
+      box-shadow: var(--shadow-sm);
+      border-left: 5px solid;
+    }
+    
+    .result-good {
+      background-color: rgba(16, 185, 129, 0.1);
+      border-left-color: var(--color-success);
+    }
+    
+    .result-moderate {
+      background-color: rgba(245, 158, 11, 0.1);
+      border-left-color: var(--color-warning);
+    }
+    
+    .result-poor {
+      background-color: rgba(239, 68, 68, 0.1);
+      border-left-color: var(--color-danger);
+    }
+    
+    .result-level {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--font-medium);
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+    }
+    
+    .result-description {
+      font-size: var(--font-base);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    
+    .result-percentage {
+      font-size: 24px;
+      font-weight: 700;
+      margin: var(--space-lg) 0;
+      text-align: center;
+    }
+    
+    .tip-box {
+      background-color: var(--color-primary-lighter);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-left: 5px solid var(--color-primary-light);
     }
 
-    function handleCheckboxChange(event) {
-      const checkbox = event.target;
-      const questionItem = checkbox.closest('.question-item');
-      if (!questionItem) return;
-      if (checkbox.checked) {
-        questionItem.style.borderLeft = '4px solid var(--primary-color)';
-        questionItem.style.backgroundColor = '#ede8f6';
-      } else {
-        questionItem.style.borderLeft = '0px solid var(--primary-color)';
-        questionItem.style.backgroundColor = 'var(--primary-lighter)';
+    .tip-title {
+      font-size: var(--font-medium);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    /* 애니메이션 */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    function attachCheckboxListeners() {
-      const checkboxes = questionsListContainer.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach(checkbox => {
-        checkbox.removeEventListener('change', handleCheckboxChange);
-        checkbox.addEventListener('change', handleCheckboxChange);
-      });
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* 결과 항목 */
+    .result-item {
+      border-left: 3px solid var(--color-primary-light);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+      background-color: var(--color-primary-lighter);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+    
+    .result-item-title {
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--color-text-dark);
+    }
+    
+    .result-item-answer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .answer-badge {
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .answer-badge.correct {
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #047857;
+    }
+    
+    .answer-badge.incorrect {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: #DC2626;
+    }
+    
+    .result-item-explanation {
+      font-size: var(--font-small);
+      color: var(--color-text);
+      margin-top: var(--space-sm);
+      line-height: 1.5;
+    }
+    
+    .answer-info {
+      display: flex;
+      gap: var(--space-xs);
+      font-size: var(--font-small);
+      color: var(--color-text-light);
+    }
+    
+    /* 전략 카드 */
+    .strategy-card {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-left: 5px solid var(--color-area1);
+    }
+    
+    .strategy-title {
+      font-size: var(--font-medium);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    .strategy-steps {
+      list-style-type: none;
+      counter-reset: step;
+      margin-left: 0;
+    }
+    
+    .strategy-step {
+      position: relative;
+      padding-left: 45px;
+      margin-bottom: var(--space-md);
+      counter-increment: step;
+      line-height: 1.8;
+    }
+    
+    .strategy-step::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(46, 90, 135, 0.1);
+      color: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    
+    .quote-box {
+      border-left: 4px solid var(--color-primary);
+      padding: var(--space-md);
+      margin: var(--space-lg) 0;
+      background-color: var(--color-primary-lighter);
+      font-style: italic;
+      color: var(--color-primary-dark);
+      line-height: 1.8;
+    }
+    
+    .quote-author {
+      display: block;
+      text-align: right;
+      font-style: normal;
+      font-weight: 500;
+      margin-top: var(--space-xs);
+      color: var(--color-text);
+    }
+    
+    /* 이미지 저장, 링크 복사 버튼 */
+    .share-buttons {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    
+    .share-btn {
+      flex: 1;
+      padding: var(--space-sm);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--color-border);
+      background-color: var(--color-white);
+      color: var(--color-text);
+      font-size: var(--font-small);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+    
+    .share-btn:hover {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary);
+      border-color: var(--color-primary-light);
+    }
+    
+    .toast-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      box-shadow: var(--shadow-md);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .toast-notification.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+      .ox-options {
+        flex-direction: row;
+      }
+      
+      .ox-option {
+        flex: 1;
+      }
+      
+      .nav-buttons {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .share-buttons {
+        flex-direction: column;
+      }
     }
 
-    function renderQuestions() {
-      questionsListContainer.innerHTML = '';
-      totalQuestionCountEl.textContent = questions.length;
-      if (questions.length === 0) {
-          loadingMessage.textContent = "질문 목록이 없습니다.";
-          loadingMessage.style.display = 'block';
-          return;
-      }
-      loadingMessage.style.display = 'none';
-      questions.forEach((q, index) => {
-        const questionId = `q${index + 1}`;
-        const labelId = `label-for-${questionId}`;
-        const questionElement = document.createElement('div');
-        questionElement.className = 'question-item staggered-fade-in';
-        questionElement.innerHTML = `
-          <label for="${questionId}" id="${labelId}">
-            <div class="question-text">
-              <span class="emoji-icon" aria-hidden="true">${q.emoji}</span> ${q.text}
-            </div>
-            <input type="checkbox" id="${questionId}" aria-labelledby="${labelId}" data-question-id="${q.id}" />
-          </label>
-        `;
-        questionsListContainer.appendChild(questionElement);
-      });
-      attachCheckboxListeners();
+    /* 자세히 알아보기 버튼 스타일 */
+    .learn-more-btn {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary-light);
+      font-size: var(--font-small);
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .learn-more-btn:hover {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
     }
 
-    calculateBtn.addEventListener('click', () => {
-      calculateBtn.classList.add('animate__animated', 'animate__pulse');
-      setTimeout(() => calculateBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
-      const checkboxes = questionsListContainer.querySelectorAll('input[type="checkbox"]:checked');
-      const checkedCount = checkboxes.length;
-      const score = checkedCount * 5;
-      const currentLevel = scoreLevels.find(level => score <= level.maxScore);
-      if (!currentLevel) {
-          console.error("점수 레벨을 찾을 수 없습니다.", score);
-          showStatusMessage("오류가 발생했습니다. 다시 시도해주세요.");
-          return;
-      }
-      finalScoreEl.innerHTML = `${score}<span class="score-value-text">점</span>`;
-      finalCheckedCountEl.textContent = checkedCount;
-      resultTotalQuestionCountEl.textContent = questions.length;
-      finalBadgeEl.textContent = `${currentLevel.emoji} ${currentLevel.label} 단계`;
-      finalBadgeEl.className = `level-badge ${currentLevel.badgeClass}`;
-      finalGaugeFill.style.width = `${score}%`;
-      finalGaugeFill.style.backgroundColor = currentLevel.gaugeColor;
-      finalGaugeFill.style.backgroundImage = `linear-gradient(90deg, ${currentLevel.gaugeColor}, ${currentLevel.gaugeColor})`;
-      interpretationText.innerHTML = currentLevel.message;
-      interpretationContent.style.backgroundColor = currentLevel.interpretationBgColor;
-      interpretationContent.style.borderColor = currentLevel.borderColor;
-      questionsSection.classList.remove('animate__fadeIn');
-      questionsSection.classList.add('animate__animated', 'animate__fadeOut');
-      setTimeout(() => {
-        questionsSection.style.display = 'none';
-        resultSection.style.display = 'block';
-        resultSection.classList.add('animate__animated', 'animate__fadeIn');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 500);
+    /* 모달 스타일 */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal-container {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+      max-height: 90vh;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      animation: fadeInUp 0.4s ease;
+    }
+    
+    .modal-header {
+      position: sticky;
+      top: 0;
+      background-color: var(--color-primary-lighter);
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--color-primary-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    
+    .modal-title {
+      font-size: var(--font-medium);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--color-text-light);
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: all var(--transition-fast);
+    }
+    
+    .modal-close:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--color-text-dark);
+    }
+    
+    .modal-body {
+      padding: var(--space-lg);
+      overflow-y: auto;
+      line-height: 1.8;
+    }
+    
+    .modal-body p {
+      margin-bottom: var(--space-md);
+    }
+    
+    .modal-body strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    
+    .modal-body h2 {
+      color: var(--color-primary);
+      font-size: var(--font-medium);
+      margin: var(--space-lg) 0 var(--space-md);
+    }
+    
+    .modal-body ul {
+      margin-left: var(--space-lg);
+      margin-bottom: var(--space-md);
+    }
+    
+    .modal-body li {
+      margin-bottom: var(--space-xs);
+    }
+    
+    .modal-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+    }
+    
+    .modal-body th, .modal-body td {
+      border: 1px solid var(--color-border);
+      padding: var(--space-xs) var(--space-sm);
+      text-align: left;
+    }
+    
+    .modal-body th {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary);
+    }
+    
+    .modal-body blockquote {
+      border-left: 4px solid var(--color-primary-light);
+      padding-left: var(--space-md);
+      margin: var(--space-md) 0;
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+    
+    .emotional-quote {
+      font-size: 18px;
+      color: var(--color-primary);
+      font-weight: 500;
+      text-align: center;
+      margin: var(--space-lg) 0;
+      line-height: 1.5;
+    }
+    
+    .modal-section {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    
+    .emoji-bullet {
+      margin-right: var(--space-xs);
+    }
+    
+    .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+    }
+    
+    .score-table th, .score-table td {
+      border: 1px solid var(--color-border);
+      padding: var(--space-xs) var(--space-sm);
+      text-align: center;
+    }
+    
+    .score-table th {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary);
+    }
+
+    .privacy-notice {
+        font-size: var(--font-small);
+        color: var(--color-text-light);
+        text-align: center;
+        margin-top: var(--space-lg);
+        padding: var(--space-sm);
+        background-color: var(--color-primary-lighter);
+        border-radius: var(--border-radius);
+        line-height: 1.7;
+    }
+    
+    .explanation-box {
+      display: none;
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      background-color: var(--color-primary-lighter);
+      border-radius: var(--border-radius);
+      border-left: 3px solid var(--color-primary);
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .explanation-title {
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    
+    .explanation-content {
+      font-size: var(--font-base);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+<h1>💼 직장에서 사실 vs 해석 구분하기</h1>
+<p>동료, 상사, 고객과의 소통에서 발생하는 오해와 갈등! 🤔<br/>혹시 사실이 아닌 내 해석 때문은 아닐까요? 함께 확인해보세요!</p>
+</div>
+<div class="container">
+<div class="card" id="intro-card">
+<div class="card-header">
+<h2 class="card-title">💼 직장 소통 진단 테스트</h2>
+<button class="learn-more-btn" id="learn-more-btn">
+<i class="fas fa-info-circle"></i> 자세히 알아보기
+      </button>
+</div>
+<div class="card-body">
+<div class="intro-text">
+<p>직장에서 이런 생각 해보신 적 없으신가요? 🤯<br/>"팀장님이 나한테만 차갑게 대하시는 것 같아"<br/>"고객이 우리 서비스를 싫어하는 것 같아"<br/>"동료가 나를 무시하는 것 같아"</p>
+<p style="margin-top: var(--space-md);">그런데 잠깐! 🛑<br/>이것들이 정말 <span class="highlight">'사실'</span>일까요? 아니면 내가 상황을 그렇게 <span class="highlight">'해석'</span>한 걸까요?</p>
+<p style="margin-top: var(--space-md);">특히 <strong>텔레마케팅, 영업, 상담</strong> 업무에서는 이런 구분이 매우 중요해요. 고객의 반응을 정확히 읽고, 동료와 원활하게 소통하는 첫걸음이거든요! 💪</p>
+<p style="margin-top: var(--space-md); color: var(--color-text-light);"><i class="fas fa-clock"></i> 소요시간: 약 7분 | <i class="fas fa-users"></i> 직장인 맞춤형</p>
+</div>
+<button class="btn btn-primary" id="start-btn" style="margin: 0 auto; display: block;">
+        진단 시작하기 <span style="margin-left: 4px;">🚀</span>
+</button>
+<div class="privacy-notice">
+    🔒 모든 응답은 개인정보 보호를 위해 귀하의 기기에만 저장됩니다.<br/>회사나 외부로 전송되지 않으니 솔직하게 답변해 주세요! 😊
+</div>
+</div>
+</div>
+<div class="progress-container" id="progress-container" style="display: none;">
+<div class="progress-bar" id="progress-bar"></div>
+</div>
+<div class="progress-text" id="progress-text" style="display: none;">1/20</div>
+
+<div class="card" id="question-card" style="display: none;">
+<div class="card-body">
+    <div class="question-container" id="q1">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">1</div>
+    <div class="question-title">"팀장님이 내 보고서를 받고 하루 종일 피드백을 주지 않으셨다. 팀장님은 내 업무를 중요하게 생각하지 않는다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q1-o" name="q1" type="radio" value="O"/>
+    <label class="ox-label" for="q1-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q1-x" name="q1" type="radio" value="X"/>
+    <label class="ox-label" for="q1-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-1">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"하루 종일 피드백을 주지 않았다"는 사실이지만, "중요하게 생각하지 않는다"는 해석입니다. 팀장님이 다른 급한 업무에 바쁘거나, 신중히 검토 중이거나, 피드백을 정리하는 시간이 필요했을 수 있습니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q2">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">2</div>
+    <div class="question-title">"고객이 상품 설명 중에 '아, 그렇구나' 하며 웃으셨다. 고객이 우리 상품을 우습게 보고 있다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q2-o" name="q2" type="radio" value="O"/>
+    <label class="ox-label" for="q2-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q2-x" name="q2" type="radio" value="X"/>
+    <label class="ox-label" for="q2-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-2">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"'아, 그렇구나' 하며 웃었다"는 사실이지만, "우습게 본다"는 해석입니다. 고객이 이해했다는 의미로 웃었거나, 긍정적인 반응일 수도 있습니다. 텔레마케팅에서는 이런 오해가 성과에 직접 영향을 줄 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q3">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">3</div>
+    <div class="question-title">"상사가 '다음부터는 더 꼼꼼히 해주세요'라고 말씀하셨다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q3-o" name="q3" type="radio" value="O"/>
+    <label class="ox-label" for="q3-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q3-x" name="q3" type="radio" value="X"/>
+    <label class="ox-label" for="q3-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-3">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>이것은 상사가 실제로 한 말이므로 사실입니다. 다만 이 말의 진짜 의도(질책인지, 조언인지, 격려인지)는 별도로 확인이 필요합니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q4">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">4</div>
+    <div class="question-title">"동료가 내 업무 요청에 '지금 바쁘다'고 답했다. 그는 나와 일하기 싫어한다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q4-o" name="q4" type="radio" value="O"/>
+    <label class="ox-label" for="q4-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q4-x" name="q4" type="radio" value="X"/>
+    <label class="ox-label" for="q4-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-4">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"'지금 바쁘다'고 답했다"는 사실이지만, "나와 일하기 싫어한다"는 해석입니다. 정말로 업무가 많아서 바쁘거나, 데드라인에 쫓기고 있을 수 있습니다. 직장에서 이런 오해는 팀워크를 해칠 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q5">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">5</div>
+    <div class="question-title">"이번 달 내 영업 실적이 목표에 못 미쳤다. 나는 영업에 재능이 없다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q5-o" name="q5" type="radio" value="O"/>
+    <label class="ox-label" for="q5-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q5-x" name="q5" type="radio" value="X"/>
+    <label class="ox-label" for="q5-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-5">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"실적이 목표에 못 미쳤다"는 사실이지만, "재능이 없다"는 해석입니다. 시장 상황, 계절적 요인, 신규 고객 발굴의 어려움 등 다양한 요인이 있을 수 있습니다. 한 달의 결과로 전체를 판단하는 것은 성급합니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q6">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">6</div>
+    <div class="question-title">"회의에서 내가 발표할 때 부장님이 휴대폰을 확인하셨다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q6-o" name="q6" type="radio" value="O"/>
+    <label class="ox-label" for="q6-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q6-x" name="q6" type="radio" value="X"/>
+    <label class="ox-label" for="q6-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-6">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>이것은 관찰 가능한 행동이므로 사실입니다. "휴대폰을 확인했다"는 객관적으로 확인할 수 있는 행동입니다. 하지만 그 이유나 의도는 별개의 문제입니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q7">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">7</div>
+    <div class="question-title">"고객이 '다른 곳과 비교해보겠다'고 말했다. 이 고객은 우리 회사를 선택하지 않을 것이다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q7-o" name="q7" type="radio" value="O"/>
+    <label class="ox-label" for="q7-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q7-x" name="q7" type="radio" value="X"/>
+    <label class="ox-label" for="q7-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-7">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"'다른 곳과 비교해보겠다'고 말했다"는 사실이지만, "선택하지 않을 것이다"는 해석입니다. 많은 고객들이 신중한 결정을 위해 비교 검토를 하며, 이것이 구매 의사가 없다는 뜻은 아닙니다. 오히려 진지하게 고려 중일 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q8">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">8</div>
+    <div class="question-title">"동료가 '너는 항상 늦게 온다'라고 말했다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q8-o" name="q8" type="radio" value="O"/>
+    <label class="ox-label" for="q8-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q8-x" name="q8" type="radio" value="X"/>
+    <label class="ox-label" for="q8-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-8">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>동료가 실제로 한 말이므로 사실입니다. 다만 '항상'이라는 표현의 정확성이나 그 말에 담긴 의도(걱정, 비판, 농담 등)는 별도로 확인이 필요합니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q9">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">9</div>
+    <div class="question-title">"고객이 통화 중 한숨을 쉬었다. 고객이 우리 서비스에 실망했다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q9-o" name="q9" type="radio" value="O"/>
+    <label class="ox-label" for="q9-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q9-x" name="q9" type="radio" value="X"/>
+    <label class="ox-label" for="q9-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-9">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"한숨을 쉬었다"는 사실이지만, "서비스에 실망했다"는 해석입니다. 고객이 피곤하거나, 다른 일로 스트레스를 받고 있거나, 단순히 습관적으로 한숨을 쉬었을 수 있습니다. 전화 상담에서는 이런 오해가 서비스 품질에 영향을 줄 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q10">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">10</div>
+    <div class="question-title">"팀원이 자신의 성과를 자주 이야기한다. 그는 나를 경쟁 상대로 보고 견제하려고 한다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q10-o" name="q10" type="radio" value="O"/>
+    <label class="ox-label" for="q10-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q10-x" name="q10" type="radio" value="X"/>
+    <label class="ox-label" for="q10-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-10">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"성과를 자주 이야기한다"는 사실이지만, "견제하려고 한다"는 해석입니다. 그는 단순히 성취감을 공유하거나, 인정받고 싶거나, 동기부여를 받고 싶어서일 수 있습니다. 이런 오해는 팀 내 분위기를 해칠 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q11">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">11</div>
+    <div class="question-title">"내가 도움을 요청했을 때 동료가 '지금은 어렵다'고 세 번 연속 답했다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q11-o" name="q11" type="radio" value="O"/>
+    <label class="ox-label" for="q11-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q11-x" name="q11" type="radio" value="X"/>
+    <label class="ox-label" for="q11-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-11">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>이는 관찰 가능한 행동의 기록이므로 사실입니다. "세 번 연속 '지금은 어렵다'고 답했다"는 구체적이고 확인 가능한 사실입니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q12">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">12</div>
+    <div class="question-title">"우리 팀원들은 나를 팀의 일원으로 인정하지 않는다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q12-o" name="q12" type="radio" value="O"/>
+    <label class="ox-label" for="q12-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q12-x" name="q12" type="radio" value="X"/>
+    <label class="ox-label" for="q12-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-12">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>이는 팀원들의 내면 상태에 대한 해석입니다. 팀원들이 실제로 어떻게 생각하는지는 직접 확인하지 않고는 알 수 없습니다. 특정 행동이나 말을 바탕으로 추측할 뿐입니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q13">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">13</div>
+    <div class="question-title">"고객이 '생각해보겠다'고 했다. 이 고객은 관심이 없어서 거절하려고 한다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q13-o" name="q13" type="radio" value="O"/>
+    <label class="ox-label" for="q13-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q13-x" name="q13" type="radio" value="X"/>
+    <label class="ox-label" for="q13-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-13">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"'생각해보겠다'고 했다"는 사실이지만, "관심이 없어서 거절하려고 한다"는 해석입니다. 고객이 정말로 신중하게 검토 중이거나, 가족과 상의해야 하거나, 예산을 확인해야 할 수 있습니다. 영업에서는 이런 구분이 매우 중요해요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q14">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">14</div>
+    <div class="question-title">"상사가 내 업무 방식에 대해 구체적인 지적을 세 가지 하셨다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q14-o" name="q14" type="radio" value="O"/>
+    <label class="ox-label" for="q14-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q14-x" name="q14" type="radio" value="X"/>
+    <label class="ox-label" for="q14-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-14">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>"구체적인 지적을 세 가지 했다"는 관찰 가능한 행동이므로 사실입니다. 지적의 내용이 구체적이고 개수도 확인 가능합니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q15">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">15</div>
+    <div class="question-title">"내 동료들은 나보다 더 능력이 있다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q15-o" name="q15" type="radio" value="O"/>
+    <label class="ox-label" for="q15-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q15-x" name="q15" type="radio" value="X"/>
+    <label class="ox-label" for="q15-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-15">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"능력"이라는 개념 자체가 주관적이며, 어떤 기준으로 비교하는지에 따라 달라집니다. 이는 자신에 대한 주관적 평가이지 객관적 사실이 아닙니다. 각자 다른 강점과 약점을 가지고 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q16">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">16</div>
+    <div class="question-title">"내가 회식에서 실수로 음료를 쏟았기 때문에 분위기가 어색해졌다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q16-o" name="q16" type="radio" value="O"/>
+    <label class="ox-label" for="q16-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q16-x" name="q16" type="radio" value="X"/>
+    <label class="ox-label" for="q16-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-16">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"음료를 쏟았다"는 사실이지만, "그 때문에 분위기가 어색해졌다"는 인과관계는 해석입니다. 분위기 변화에는 여러 요인이 있을 수 있고, 오히려 자연스러운 해프닝으로 받아들여졌을 수도 있습니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q17">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">17</div>
+    <div class="question-title">"팀장님이 내 생일을 축하해주지 않으셨다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q17-o" name="q17" type="radio" value="O"/>
+    <label class="ox-label" for="q17-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q17-x" name="q17" type="radio" value="X"/>
+    <label class="ox-label" for="q17-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-17">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: O (사실)</strong></p>
+    <p>이는 확인 가능한 사실입니다. "생일 축하를 하지 않았다"는 관찰 가능한 행동(또는 행동의 부재)입니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q18">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">18</div>
+    <div class="question-title">"상사가 내 의견을 무시했다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q18-o" name="q18" type="radio" value="O"/>
+    <label class="ox-label" for="q18-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q18-x" name="q18" type="radio" value="X"/>
+    <label class="ox-label" for="q18-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-18">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"무시했다"는 상대방의 의도에 대한 해석입니다. 상사가 의견을 듣지 않았거나, 다른 방향으로 결정했을 수는 있지만, 그것이 의도적인 '무시'인지는 확실하지 않습니다. 다른 고려사항이 있었을 수 있어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q19">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">19</div>
+    <div class="question-title">"내가 상사를 실망시켰다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q19-o" name="q19" type="radio" value="O"/>
+    <label class="ox-label" for="q19-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q19-x" name="q19" type="radio" value="X"/>
+    <label class="ox-label" for="q19-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-19">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>이는 상사의 감정 상태에 대한 해석입니다. 상사가 직접 "실망했다"고 표현하지 않는 한, 그의 감정을 확실히 알 수는 없습니다. 상사의 특정 반응을 보고 추측할 뿐입니다.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="question-container" id="q20">
+    <div class="question">
+    <div class="question-header">
+    <div class="question-number">20</div>
+    <div class="question-title">"나는 항상 직장에서 문제를 일으킨다."</div>
+    </div>
+    <div class="options">
+    <p>이것은 <strong>사실</strong>인가요, <strong>해석</strong>인가요?</p>
+    <div class="ox-options">
+    <div class="ox-option">
+    <input id="q20-o" name="q20" type="radio" value="O"/>
+    <label class="ox-label" for="q20-o">O</label>
+    <div class="ox-description">사실이다</div>
+    </div>
+    <div class="ox-option">
+    <input id="q20-x" name="q20" type="radio" value="X"/>
+    <label class="ox-label" for="q20-x">X</label>
+    <div class="ox-description">해석이다</div>
+    </div>
+    </div>
+    </div>
+    <div class="explanation-box" id="explanation-20">
+    <div class="explanation-title"><i class="fas fa-lightbulb"></i> 해설</div>
+    <div class="explanation-content">
+    <p><strong>정답: X (해석)</strong></p>
+    <p>"항상"이라는 표현은 일반화이며, "문제를 일으킨다"는 주관적 판단입니다. 이는 과거 몇 가지 경험에 대한 해석이지, 객관적 사실이 아닙니다. 모든 상황과 모든 시점을 "항상"이라고 단정할 수는 없어요.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="nav-buttons">
+    <button class="btn btn-secondary" id="prev-btn">
+    <span style="margin-right: 4px;">◀</span> 이전
+            </button>
+    <button class="btn btn-primary" id="next-btn">
+              다음 <span style="margin-left: 4px;">▶</span>
+    </button>
+    </div>
+</div>
+</div>
+
+<div class="card" id="result-card" style="display: none;">
+<div class="card-header">
+<h2 class="card-title">📊 직장 소통 진단 결과</h2>
+</div>
+<div class="card-body">
+<div class="result-container" id="result-container">
+<div class="result-header">
+<h2 class="result-title">당신의 직장 소통 진단 결과</h2>
+<p class="result-subtitle">사실과 해석을 구분하는 능력 측정</p>
+</div>
+
+<div class="result-card result-good" id="result-good" style="display: none;">
+<div class="result-level">
+<span>🟢 직장에서 객관적 판단력이 뛰어난 수준</span>
+</div>
+<div class="result-percentage" id="good-percentage"></div>
+<div class="result-description">
+<p>훌륭해요! 🎉<br/>동료나 고객의 반응에 흔들리지 않고 상황을 객관적으로 파악하는 능력이 뛰어나시네요!</p>
+<p>이러한 능력은 텔레마케팅이나 고객 상담에서 매우 중요합니다. 갈등 상황에서도 감정에 휩쓸리지 않고 문제의 핵심을 파악할 수 있어 팀 내에서 신뢰받는 동료가 되실 것입니다.</p>
+</div>
+</div>
+
+<div class="result-card result-moderate" id="result-moderate" style="display: none;">
+<div class="result-level">
+<span>🟠 평상시에는 괜찮지만 스트레스 상황에서 주의가 필요한 수준</span>
+</div>
+<div class="result-percentage" id="moderate-percentage"></div>
+<div class="result-description">
+<p>당신은 <strong>일상적인 업무 상황에서는 사실과 해석을 잘 구분하지만, 스트레스를 받거나 감정적으로 힘들 때는 해석에 치우치기 쉽습니다.</strong></p>
+<p>특히 실적 압박이나 고객 컴플레인, 동료와의 갈등 상황에서 객관성을 잃기 쉬워요. 이럴 때일수록 한 발 물러서서 "이게 정말 사실일까?"라고 자문해보는 습관을 기르면 도움이 될 것입니다.</p>
+</div>
+</div>
+
+<div class="result-card result-poor" id="result-poor" style="display: none;">
+<div class="result-level">
+<span>🔴 직장 생활에서 많은 스트레스를 받고 계신 것 같아요</span>
+</div>
+<div class="result-percentage" id="poor-percentage"></div>
+<div class="result-description">
+<p>힘드셨죠? 😊<br/>동료들의 말과 행동, 고객들의 반응을 부정적으로 해석하는 경우가 많아서<br/>불필요한 스트레스를 많이 받고 계실 것 같아요.</p>
+<p>다행히 이런 패턴은 연습을 통해 충분히 개선할 수 있어요! 아래의 실천법을 꾸준히 따라해보시면 직장 생활이 훨씬 편해질 거예요. 당신은 생각보다 훨씬 괜찮은 사람이에요! 💪</p>
+</div>
+</div>
+
+<div id="results-details" style="margin-top: var(--space-xl);">
+<h3 style="margin-bottom: var(--space-md); color: var(--color-primary);">📝 문항별 상세 결과</h3>
+<div id="result-items-container">
+</div>
+</div>
+
+<div class="quote-box">
+<p>"직장에서 나를 힘들게 하는 건 상황 자체가 아니야.<br/>그 상황을 내가 어떻게 받아들이느냐가 문제야." 💼</p>
+<span class="quote-author">- 성공하는 직장인들의 공통점</span>
+</div>
+
+<div class="strategy-card">
+<h3 class="strategy-title">🎯 직장에서 바로 적용할 수 있는 STOP 기법</h3>
+<ul class="strategy-steps">
+<li class="strategy-step">
+<strong>S-STOP (멈춤)</strong>: "어? 나 지금 감정적으로 반응하고 있나?" 하고 잠깐 멈춰보기
+</li>
+<li class="strategy-step">
+<strong>T-THINK (생각)</strong>: "지금 내가 보고 들은 것만 정리해보자. 사실만!"
+</li>
+<li class="strategy-step">
+<strong>O-OPTIONS (다른 가능성)</strong>: "혹시 다른 이유나 상황은 없을까?"
+</li>
+<li class="strategy-step">
+<strong>P-PROCEED (확인 후 진행)</strong>: "잘 모르겠으면 정중하게 확인해보자"
+</li>
+</ul>
+</div>
+
+<div class="tip-box">
+<h3 class="tip-title">💡 직장에서 자주하는 해석들</h3>
+<p>이런 생각들, 혹시 해보신 적 있으세요?</p>
+<ul style="margin-top: var(--space-sm); margin-left: var(--space-lg);">
+<li><strong>"팀장님이 날 싫어하시나봐"</strong> → 혹시 바쁘시거나 다른 걱정이 있으실 수 있어요</li>
+<li><strong>"동료가 나를 경계하는구나"</strong> → 그냥 업무에 집중하고 있을 수도 있어요</li>
+<li><strong>"고객이 우리 서비스를 별로라고 생각해"</strong> → 단순히 신중한 성격일 수 있어요</li>
+<li><strong>"내가 실수해서 분위기 망쳤어"</strong> → 생각보다 다들 금방 잊어버렸을 수도 있어요</li>
+</ul>
+<p style="margin-top: var(--space-sm);">이런 해석들은 우리의 과거 경험이나 불안감에서 나오는 경우가 많아요. 특히 텔레마케팅이나 영업 같은 스트레스가 많은 업무에서는 더욱 그렇죠.</p>
+</div>
+
+<div style="text-align: center; margin-top: var(--space-lg);">
+<button class="btn btn-primary" id="restart-btn" style="margin: 0 auto; display: block; margin-bottom: var(--space-md);">
+          🔄 다시 진단받기
+        </button>
+<div class="share-buttons">
+<button class="share-btn" id="save-image-btn">
+<i class="fas fa-image"></i> 결과 이미지 저장
+</button>
+<button class="share-btn" id="copy-link-btn">
+<i class="fas fa-link"></i> 링크 복사하기
+</button>
+</div>
+<p style="color: var(--color-text-lighter); font-size: 14px; margin-top: var(--space-md);">
+          ※ 이 진단은 직장 내 소통 패턴을 점검하는 도구이며, 전문적인 상담이나 치료를 대체할 수 없습니다.
+        </p>
+<div class="privacy-notice" style="margin-top: var(--space-md); background-color: transparent; color: var(--color-text-lighter);">
+    🔒 모든 응답과 결과는 귀하의 기기에만 저장됩니다.<br/>회사나 외부로 전송되지 않으니 안심하세요! 😊
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="toast-notification" id="toast-notification"></div>
+
+<div class="modal-overlay" id="modal-overlay">
+<div class="modal-container">
+<div class="modal-header">
+<h3 class="modal-title">💼 직장 소통 진단 테스트 - 상세 설명</h3>
+<button class="modal-close" id="modal-close">×</button>
+</div>
+<div class="modal-body">
+<div class="emotional-quote">
+<p>❝직장에서 당신을 괴롭히는 것은 실제 상황이 아니라,<br/>
+     그 상황에 당신이 부여한 의미일 수 있습니다.❞</p>
+</div>
+<div class="modal-section">
+<h2>🎯 이 진단 테스트의 목적</h2>
+<p>텔레마케팅, 영업, 고객상담 등의 업무는 사람과의 소통이 핵심입니다. 하지만 우리는 종종:</p>
+<ul>
+<li><strong>고객의 반응을 부정적으로 해석</strong>하여 불필요한 스트레스를 받습니다</li>
+<li><strong>동료나 상사의 행동에 의미를 부여</strong>하여 관계가 틀어집니다</li>
+<li><strong>자신의 실수를 과대평가</strong>하여 자신감을 잃습니다</li>
+<li><strong>애매한 상황을 부정적으로 단정</strong>하여 기회를 놓칩니다</li>
+</ul>
+<p>이 테스트는 여러분이 직장에서 겪는 상황들을 <strong>'사실'</strong>과 <strong>'해석'</strong>으로 구분하는 능력을 측정합니다.</p>
+</div>
+<div class="modal-section">
+<h2>🔍 사실 vs 해석 구분법</h2>
+<p><strong>📹 사실 (Facts)</strong><br/>
+- CCTV에 찍힐 수 있는 것들<br/>
+- 누가 봐도 "맞다, 그랬다"고 동의할 수 있는 것<br/>
+- 감정이나 판단 없이 그냥 일어난 일<br/>
+- 예: "고객이 '생각해보겠다'고 말했다", "팀장님이 보고서에 빨간 펜으로 표시했다"</p>
+<p><strong>💭 해석 (Interpretations)</strong><br/>
+- 내가 그 상황에 부여한 의미<br/>
+- 사람마다 다르게 생각할 수 있는 것<br/>
+- 내 경험, 기분, 걱정이 섞여서 만들어진 것<br/>
+- 예: "고객이 관심없어 한다", "팀장님이 내 업무를 못마땅해 한다"</p>
+</div>
+<div class="modal-section">
+<h2>📊 결과 해석 기준</h2>
+<table class="score-table">
+<tr><th>점수</th><th>수준</th><th>직장생활 특성</th></tr>
+<tr><td>15-20점<br/>(75-100%)</td><td>우수</td><td>객관적 판단력이 뛰어나며, 스트레스 상황에서도 냉정함을 유지. 갈등 해결 능력이 좋음</td></tr>
+<tr><td>10-14점<br/>(50-74%)</td><td>보통</td><td>평상시에는 괜찮지만 압박상황에서는 감정적 해석에 치우치기 쉬움. 의식적 노력 필요</td></tr>
+<tr><td>0-9점<br/>(0-49%)</td><td>주의</td><td>직장 상황을 부정적으로 해석하는 경향이 강해 불필요한 스트레스와 갈등이 많을 수 있음</td></tr>
+</table>
+</div>
+<div class="modal-section">
+<h2>🚀 직장에서의 실전 활용법</h2>
+<p><strong>📞 고객 상담 시</strong><br/>
+고객: "음... 잠깐만요"<br/>
+❌ 해석: "귀찮아 한다, 관심 없다"<br/>
+✅ 사실: "잠시 시간이 필요하다고 했다" → 차분히 기다려보기</p>
+<p><strong>👥 동료와의 소통 시</strong><br/>
+동료: "지금 바빠요"<br/>
+❌ 해석: "나를 피한다, 도와주기 싫어한다"<br/>
+✅ 사실: "현재 다른 업무로 바쁘다고 했다" → 나중에 다시 요청하기</p>
+<p><strong>👔 상사와의 관계에서</strong><br/>
+상사: 피드백 없음<br/>
+❌ 해석: "내 일을 중요하게 안 본다"<br/>
+✅ 사실: "아직 피드백을 받지 못했다" → 정중하게 확인 요청하기</p>
+</div>
+<div class="modal-section">
+<h2>💪 지속적인 발전을 위한 팁</h2>
+<ul>
+<li><strong>하루 1번 점검</strong>: "오늘 내가 한 해석 중에 사실인 게 있었나?"</li>
+<li><strong>동료와 검증</strong>: "내가 이해한 게 맞나요?" 확인하는 습관</li>
+<li><strong>감정 일지</strong>: 화나거나 속상할 때의 상황을 사실과 해석으로 나누어 기록</li>
+<li><strong>성공 경험 쌓기</strong>: 해석 대신 확인해서 오해를 푼 경험들 기억하기</li>
+</ul>
+</div>
+<div class="privacy-notice" style="margin-top: var(--space-md); background-color: transparent; color: var(--color-text-light); font-size: var(--font-small);">
+    🔒 이 테스트의 모든 응답과 결과는 귀하의 기기에만 저장되며, 회사나 외부 서버로 전송되지 않습니다. 개인정보 보호를 위해 안전하게 설계되었습니다.
+</div>
+</div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 핵심 요소들 존재 확인
+  const criticalElements = [
+    { name: 'introCard', id: 'intro-card' }, { name: 'questionCard', id: 'question-card' },
+    { name: 'resultCardOverall', id: 'result-card' }, { name: 'startBtn', id: 'start-btn' },
+    { name: 'prevBtn', id: 'prev-btn' }, { name: 'nextBtn', id: 'next-btn' },
+    { name: 'progressBar', id: 'progress-bar' }, { name: 'progressText', id: 'progress-text' },
+    { name: 'progressContainer', id: 'progress-container' }, { name: 'resultContainer', id: 'result-container' },
+    { name: 'restartBtn', id: 'restart-btn' }, { name: 'learnMoreBtn', id: 'learn-more-btn' },
+    { name: 'modalOverlay', id: 'modal-overlay' }, { name: 'modalClose', id: 'modal-close' },
+    { name: 'toastNotification', id: 'toast-notification'},
+    { name: 'resultGood', id: 'result-good'}, { name: 'resultModerate', id: 'result-moderate'},
+    { name: 'resultPoor', id: 'result-poor'}, { name: 'goodPercentage', id: 'good-percentage'},
+    { name: 'moderatePercentage', id: 'moderate-percentage'}, { name: 'poorPercentage', id: 'poor-percentage'},
+    { name: 'resultItemsContainer', id: 'result-items-container'},
+    { name: 'saveImageBtn', id: 'save-image-btn'}, { name: 'copyLinkBtn', id: 'copy-link-btn'}
+  ];
+
+  for (let i = 1; i <= 20; i++) {
+    criticalElements.push({ name: `q${i}`, id: `q${i}` });
+    criticalElements.push({ name: `explanation-${i}`, id: `explanation-${i}` });
+  }
+
+  let allElementsPresent = true;
+  for (const elem of criticalElements) {
+    if (!document.getElementById(elem.id)) {
+      console.error(`필수 요소가 없음: ${elem.name} (ID: ${elem.id})`);
+      allElementsPresent = false;
+    }
+  }
+
+  if (!allElementsPresent) {
+    console.warn('일부 필수 요소가 누락되었지만 테스트를 계속 진행합니다.');
+  }
+
+  const correctAnswers = {
+    1: "X", 2: "X", 3: "O", 4: "X", 5: "X", 6: "O", 7: "X", 8: "O", 9: "X", 10: "X",
+    11: "O", 12: "X", 13: "X", 14: "O", 15: "X", 16: "X", 17: "O", 18: "X", 19: "X", 20: "X"
+  };
+  
+  const questionTexts = {
+    1: "팀장님이 내 보고서를 받고 하루 종일 피드백을 주지 않으셨다. 팀장님은 내 업무를 중요하게 생각하지 않는다.",
+    2: "고객이 상품 설명 중에 '아, 그렇구나' 하며 웃으셨다. 고객이 우리 상품을 우습게 보고 있다.",
+    3: "상사가 '다음부터는 더 꼼꼼히 해주세요'라고 말씀하셨다.",
+    4: "동료가 내 업무 요청에 '지금 바쁘다'고 답했다. 그는 나와 일하기 싫어한다.",
+    5: "이번 달 내 영업 실적이 목표에 못 미쳤다. 나는 영업에 재능이 없다.",
+    6: "회의에서 내가 발표할 때 부장님이 휴대폰을 확인하셨다.",
+    7: "고객이 '다른 곳과 비교해보겠다'고 말했다. 이 고객은 우리 회사를 선택하지 않을 것이다.",
+    8: "동료가 '너는 항상 늦게 온다'라고 말했다.",
+    9: "고객이 통화 중 한숨을 쉬었다. 고객이 우리 서비스에 실망했다.",
+    10: "팀원이 자신의 성과를 자주 이야기한다. 그는 나를 경쟁 상대로 보고 견제하려고 한다.",
+    11: "내가 도움을 요청했을 때 동료가 '지금은 어렵다'고 세 번 연속 답했다.",
+    12: "우리 팀원들은 나를 팀의 일원으로 인정하지 않는다.",
+    13: "고객이 '생각해보겠다'고 했다. 이 고객은 관심이 없어서 거절하려고 한다.",
+    14: "상사가 내 업무 방식에 대해 구체적인 지적을 세 가지 하셨다.",
+    15: "내 동료들은 나보다 더 능력이 있다.",
+    16: "내가 회식에서 실수로 음료를 쏟았기 때문에 분위기가 어색해졌다.",
+    17: "팀장님이 내 생일을 축하해주지 않으셨다.",
+    18: "상사가 내 의견을 무시했다.",
+    19: "내가 상사를 실망시켰다.",
+    20: "나는 항상 직장에서 문제를 일으킨다."
+  };
+  
+  const explanations = {
+    1: "<strong>정답: X (해석)</strong><br/>\"하루 종일 피드백을 주지 않았다\"는 사실이지만, \"중요하게 생각하지 않는다\"는 해석입니다. 팀장님이 다른 급한 업무에 바쁘거나, 신중히 검토 중이거나, 피드백을 정리하는 시간이 필요했을 수 있습니다.",
+    2: "<strong>정답: X (해석)</strong><br/>\"'아, 그렇구나' 하며 웃었다\"는 사실이지만, \"우습게 본다\"는 해석입니다. 고객이 이해했다는 의미로 웃었거나, 긍정적인 반응일 수도 있습니다. 텔레마케팅에서는 이런 오해가 성과에 직접 영향을 줄 수 있어요.",
+    3: "<strong>정답: O (사실)</strong><br/>이것은 상사가 실제로 한 말이므로 사실입니다. 다만 이 말의 진짜 의도(질책인지, 조언인지, 격려인지)는 별도로 확인이 필요합니다.",
+    4: "<strong>정답: X (해석)</strong><br/>\"'지금 바쁘다'고 답했다\"는 사실이지만, \"나와 일하기 싫어한다\"는 해석입니다. 정말로 업무가 많아서 바쁘거나, 데드라인에 쫓기고 있을 수 있습니다. 직장에서 이런 오해는 팀워크를 해칠 수 있어요.",
+    5: "<strong>정답: X (해석)</strong><br/>\"실적이 목표에 못 미쳤다\"는 사실이지만, \"재능이 없다\"는 해석입니다. 시장 상황, 계절적 요인, 신규 고객 발굴의 어려움 등 다양한 요인이 있을 수 있습니다. 한 달의 결과로 전체를 판단하는 것은 성급합니다.",
+    6: "<strong>정답: O (사실)</strong><br/>이것은 관찰 가능한 행동이므로 사실입니다. \"휴대폰을 확인했다\"는 객관적으로 확인할 수 있는 행동입니다. 하지만 그 이유나 의도는 별개의 문제입니다.",
+    7: "<strong>정답: X (해석)</strong><br/>\"'다른 곳과 비교해보겠다'고 말했다\"는 사실이지만, \"선택하지 않을 것이다\"는 해석입니다. 많은 고객들이 신중한 결정을 위해 비교 검토를 하며, 이것이 구매 의사가 없다는 뜻은 아닙니다. 오히려 진지하게 고려 중일 수 있어요.",
+    8: "<strong>정답: O (사실)</strong><br/>동료가 실제로 한 말이므로 사실입니다. 다만 '항상'이라는 표현의 정확성이나 그 말에 담긴 의도(걱정, 비판, 농담 등)는 별도로 확인이 필요합니다.",
+    9: "<strong>정답: X (해석)</strong><br/>\"한숨을 쉬었다\"는 사실이지만, \"서비스에 실망했다\"는 해석입니다. 고객이 피곤하거나, 다른 일로 스트레스를 받고 있거나, 단순히 습관적으로 한숨을 쉬었을 수 있습니다. 전화 상담에서는 이런 오해가 서비스 품질에 영향을 줄 수 있어요.",
+    10: "<strong>정답: X (해석)</strong><br/>\"성과를 자주 이야기한다\"는 사실이지만, \"견제하려고 한다\"는 해석입니다. 그는 단순히 성취감을 공유하거나, 인정받고 싶거나, 동기부여를 받고 싶어서일 수 있습니다. 이런 오해는 팀 내 분위기를 해칠 수 있어요.",
+    11: "<strong>정답: O (사실)</strong><br/>이는 관찰 가능한 행동의 기록이므로 사실입니다. \"세 번 연속 '지금은 어렵다'고 답했다\"는 구체적이고 확인 가능한 사실입니다.",
+    12: "<strong>정답: X (해석)</strong><br/>이는 팀원들의 내면 상태에 대한 해석입니다. 팀원들이 실제로 어떻게 생각하는지는 직접 확인하지 않고는 알 수 없습니다. 특정 행동이나 말을 바탕으로 추측할 뿐입니다.",
+    13: "<strong>정답: X (해석)</strong><br/>\"'생각해보겠다'고 했다\"는 사실이지만, \"관심이 없어서 거절하려고 한다\"는 해석입니다. 고객이 정말로 신중하게 검토 중이거나, 가족과 상의해야 하거나, 예산을 확인해야 할 수 있습니다. 영업에서는 이런 구분이 매우 중요해요.",
+    14: "<strong>정답: O (사실)</strong><br/>\"구체적인 지적을 세 가지 했다\"는 관찰 가능한 행동이므로 사실입니다. 지적의 내용이 구체적이고 개수도 확인 가능합니다.",
+    15: "<strong>정답: X (해석)</strong><br/>\"능력\"이라는 개념 자체가 주관적이며, 어떤 기준으로 비교하는지에 따라 달라집니다. 이는 자신에 대한 주관적 평가이지 객관적 사실이 아닙니다. 각자 다른 강점과 약점을 가지고 있어요.",
+    16: "<strong>정답: X (해석)</strong><br/>\"음료를 쏟았다\"는 사실이지만, \"그 때문에 분위기가 어색해졌다\"는 인과관계는 해석입니다. 분위기 변화에는 여러 요인이 있을 수 있고, 오히려 자연스러운 해프닝으로 받아들여졌을 수도 있습니다.",
+    17: "<strong>정답: O (사실)</strong><br/>이는 확인 가능한 사실입니다. \"생일 축하를 하지 않았다\"는 관찰 가능한 행동(또는 행동의 부재)입니다.",
+    18: "<strong>정답: X (해석)</strong><br/>\"무시했다\"는 상대방의 의도에 대한 해석입니다. 상사가 의견을 듣지 않았거나, 다른 방향으로 결정했을 수는 있지만, 그것이 의도적인 '무시'인지는 확실하지 않습니다. 다른 고려사항이 있었을 수 있어요.",
+    19: "<strong>정답: X (해석)</strong><br/>이는 상사의 감정 상태에 대한 해석입니다. 상사가 직접 \"실망했다\"고 표현하지 않는 한, 그의 감정을 확실히 알 수는 없습니다. 상사의 특정 반응을 보고 추측할 뿐입니다.",
+    20: "<strong>정답: X (해석)</strong><br/>\"항상\"이라는 표현은 일반화이며, \"문제를 일으킨다\"는 주관적 판단입니다. 이는 과거 몇 가지 경험에 대한 해석이지, 객관적 사실이 아닙니다. 모든 상황과 모든 시점을 \"항상\"이라고 단정할 수는 없어요."
+  };
+
+  function isLocalStorageAvailable() {
+    try {
+      const testKey = '__testLocalStorage__';
+      localStorage.setItem(testKey, testKey);
+      localStorage.removeItem(testKey);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  const localStorageAvailable = isLocalStorageAvailable();
+  if (!localStorageAvailable) {
+    console.warn('LocalStorage를 사용할 수 없어 결과 저장 기능이 비활성화됩니다.');
+  }
+
+  const introCard = document.getElementById('intro-card');
+  const questionCard = document.getElementById('question-card');
+  const resultCardOverall = document.getElementById('result-card'); 
+  const startBtn = document.getElementById('start-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  const progressContainer = document.getElementById('progress-container');
+  const resultContainer = document.getElementById('result-container');
+  const resultGood = document.getElementById('result-good');
+  const resultModerate = document.getElementById('result-moderate');
+  const resultPoor = document.getElementById('result-poor');
+  const goodPercentage = document.getElementById('good-percentage');
+  const moderatePercentage = document.getElementById('moderate-percentage');
+  const poorPercentage = document.getElementById('poor-percentage');
+  const restartBtn = document.getElementById('restart-btn');
+  const saveImageBtn = document.getElementById('save-image-btn');
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  const toastNotification = document.getElementById('toast-notification');
+  const totalQuestions = 20;
+  let currentQuestion = 1;
+  const answers = {};
+
+  const learnMoreBtn = document.getElementById('learn-more-btn');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const modalClose = document.getElementById('modal-close');
+
+  if (learnMoreBtn && modalOverlay && modalClose) {
+    learnMoreBtn.addEventListener('click', function() {
+      modalOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; 
     });
-
-    retryBtn.addEventListener('click', () => {
-      questionsListContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-      questionsListContainer.querySelectorAll('.question-item').forEach(item => {
-          const checkbox = item.querySelector('input[type="checkbox"]');
-          if (checkbox) {
-              item.style.borderLeft = '0px solid var(--primary-color)';
-              item.style.backgroundColor = 'var(--primary-lighter)';
-          }
-      });
-      resultSection.classList.remove('animate__fadeIn');
-      resultSection.classList.add('animate__animated', 'animate__fadeOut');
-      setTimeout(() => {
-        resultSection.style.display = 'none';
-        questionsSection.style.display = 'block';
-        questionsSection.classList.remove('animate__fadeOut');
-        questionsSection.classList.add('animate__animated', 'animate__fadeIn');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 500);
+    modalClose.addEventListener('click', function() {
+      modalOverlay.style.display = 'none';
+      document.body.style.overflow = ''; 
     });
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
-    if (saveImageBtn) {
-      saveImageBtn.addEventListener('click', () => {
-        saveImageBtn.classList.add('animate__animated', 'animate__pulse');
-        setTimeout(() => saveImageBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
-        const resultCard = resultSection.querySelector('.result-card');
-        if (!resultCard) {
-          showStatusMessage("이미지 저장 오류: 결과 카드를 찾을 수 없습니다.");
-          return;
-        }
-        showStatusMessage("이미지 생성 중...", 5000);
-        html2canvas(resultCard, {
-          scale: 2,
-          backgroundColor: getComputedStyle(document.body).backgroundColor || '#f7f7f7',
-          logging: false,
-          useCORS: true,
-          onclone: (document) => {
-            const watermark = document.querySelector('.watermark');
-            if (watermark) watermark.style.display = 'none';
-          }
-        }).then(canvas => {
-          const link = document.createElement('a');
-          const date = new Date();
-          const filename = `나르시시스트_테스트_결과_${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}.png`;
-          link.download = filename;
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-          showStatusMessage('이미지가 저장되었습니다!');
-        }).catch(err => {
-          console.error("html2canvas 오류:", err);
-          showStatusMessage("이미지 저장 중 오류가 발생했습니다.");
-        });
-      });
+  function showToast(message) {
+    if (toastNotification) {
+        toastNotification.textContent = message;
+        toastNotification.classList.add('show');
+        setTimeout(function() { toastNotification.classList.remove('show'); }, 3000);
     }
+  }
 
-    if (shareBtn) {
-      shareBtn.addEventListener('click', () => {
-        shareBtn.classList.add('animate__animated', 'animate__pulse');
-        setTimeout(() => shareBtn.classList.remove('animate__animated', 'animate__pulse'), 500);
-        const scoreText = finalScoreEl.textContent || "0점";
-        const scoreValue = parseInt(scoreText, 10);
-        const levelText = finalBadgeEl.textContent || "정보 없음";
-        const checkedCount = finalCheckedCountEl.textContent || "0";
-        const totalCount = resultTotalQuestionCountEl.textContent || questions.length;
-        const currentLevel = scoreLevels.find(level => scoreValue <= level.maxScore);
-        let resultMessage = currentLevel ? currentLevel.message.split('<br>')[0].replace(/<[^>]*>?/gm, '') : "결과를 확인해보세요.";
-        const shareText = `[나르시시스트 테스트 결과]\n\n` +
-            `📊 제 점수는 ${scoreValue}점 / 100점 (${levelText}) 입니다.\n` +
-            `👉 체크한 문항: ${checkedCount} / ${totalCount}개\n\n` +
-            `${resultMessage}\n\n` +
-            `자세한 내용은 아래 링크에서 확인해보세요!\n` +
-            `${window.location.href}`;
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(shareText).then(() => {
-                showStatusMessage('결과가 클립보드에 복사되었습니다!');
-            }, (err) => {
-                console.error("클립보드 복사 실패:", err);
-                showStatusMessage('결과 복사에 실패했습니다. 수동으로 복사해주세요.');
+  if (saveImageBtn) {
+    saveImageBtn.addEventListener('click', function() {
+        const resultCardElement = document.getElementById('result-card');
+        if (resultCardElement && typeof html2canvas === 'function') {
+            showToast('🔄 결과 이미지를 생성 중입니다... 잠시만 기다려주세요.');
+            html2canvas(resultCardElement, { 
+                scale: 2,
+                useCORS: true, 
+                allowTaint: true,
+                onclone: (document) => {
+                    const buttonsToHide = document.querySelector('.share-buttons');
+                    const restartButton = document.getElementById('restart-btn');
+                    if (buttonsToHide) buttonsToHide.style.visibility = 'hidden';
+                    if (restartButton) restartButton.style.visibility = 'hidden';
+                }
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = '직장소통진단결과.png';
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+                showToast('✅ 결과 이미지가 저장되었습니다!');
+            }).catch(err => {
+                console.error('html2canvas 오류:', err);
+                showToast('⚠️ 이미지 저장 중 오류가 발생했습니다. 화면 캡처를 이용해주세요.');
             });
         } else {
-            showStatusMessage('클립보드 복사가 지원되지 않는 환경입니다.');
+            showToast('⚠️ 이미지 저장 기능을 사용할 수 없습니다. (html2canvas 라이브러리 오류)');
         }
-      });
-    }
+    });
+  }
 
-    renderQuestions();
-  </script>
- </body>
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(window.location.href)
+            .then(() => showToast('🔗 링크가 복사되었어요! 동료들과 공유해보세요.'))
+            .catch(err => { console.error('링크 복사 실패:', err); showToast('링크 복사 중 오류 발생'); });
+    });
+  }
+  
+  if (startBtn && introCard && questionCard && progressContainer && progressText) {
+    startBtn.addEventListener('click', function() {
+        introCard.style.display = 'none';
+        questionCard.style.display = 'block';
+        progressContainer.style.display = 'block';
+        progressText.style.display = 'block';
+        showQuestion(currentQuestion);
+        updateProgress();
+    });
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+        hideExplanation(currentQuestion);
+        if (currentQuestion > 1) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+            updateProgress();
+        }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+        if (currentQuestion <= totalQuestions) {
+            saveAnswer(currentQuestion);
+            if (!answers[currentQuestion]) {
+                alert('답변을 선택해주세요.'); return;
+            }
+            hideExplanation(currentQuestion);
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+                updateProgress();
+            } else { showResults(); }
+        }
+    });
+  }
+  
+  if (restartBtn) { restartBtn.addEventListener('click', function() { location.reload(); }); }
+
+  function showQuestion(index) {
+    try {
+      document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+      const questionElement = document.getElementById(`q${index}`);
+      if (questionElement) {
+        questionElement.classList.add('active');
+      } else {
+        console.error(`질문 요소를 찾을 수 없음: q${index}. 테스트 진행이 중단될 수 있습니다.`);
+        return; 
+      }
+      if (prevBtn) {
+        prevBtn.disabled = index === 1;
+        prevBtn.classList.toggle('btn-disabled', index === 1);
+      }
+      if (nextBtn) {
+        nextBtn.innerHTML = index === totalQuestions ? '결과 보기 <span style="margin-left: 4px;">✓</span>' : '다음 <span style="margin-left: 4px;">▶</span>';
+      }
+    } catch (error) {
+      console.error('showQuestion 함수 오류:', error);
+    }
+  }
+  
+  function updateProgress() {
+    if (progressBar && progressText) {
+        const perc = (currentQuestion / totalQuestions) * 100;
+        progressBar.style.width = perc + '%';
+        progressText.textContent = `${currentQuestion}/${totalQuestions}`;
+    }
+  }
+
+  function saveAnswer(questionNum) {
+    const selectedRadio = document.querySelector(`input[name="q${questionNum}"]:checked`);
+    if (selectedRadio) {
+      answers[questionNum] = selectedRadio.value;
+    }
+  }
+  
+  function showExplanation(questionNum) {
+    try {
+      const explanationBox = document.getElementById(`explanation-${questionNum}`);
+      if (explanationBox) { explanationBox.style.display = 'block'; }
+    } catch (error) { console.error('showExplanation 함수 오류:', error); }
+  }
+  
+  function hideExplanation(questionNum) {
+    try {
+      const explanationBox = document.getElementById(`explanation-${questionNum}`);
+      if (explanationBox) { explanationBox.style.display = 'none'; }
+    } catch (error) { console.error('hideExplanation 함수 오류:', error); }
+  }
+
+  function showResults() {
+    if (!questionCard || !progressContainer || !progressText || !resultCardOverall || !resultContainer) {
+        console.error("결과 표시에 필요한 핵심 DOM 요소를 찾을 수 없습니다."); return;
+    }
+    let correctCount = 0;
+    for (let i = 1; i <= totalQuestions; i++) {
+      if (answers[i] === correctAnswers[i]) { correctCount++; }
+    }
+    
+    questionCard.style.display = 'none';
+    progressContainer.style.display = 'none';
+    progressText.style.display = 'none';
+    resultCardOverall.style.display = 'block'; 
+    resultContainer.style.display = 'block'; 
+    
+    if(resultGood) resultGood.style.display = 'none';
+    if(resultModerate) resultModerate.style.display = 'none';
+    if(resultPoor) resultPoor.style.display = 'none';
+    
+    const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+
+    if (scorePercentage >= 75) {
+      if (resultGood && goodPercentage) { resultGood.style.display = 'block'; goodPercentage.textContent = `${scorePercentage}%`; }
+    } else if (scorePercentage >= 50) {
+      if (resultModerate && moderatePercentage) { resultModerate.style.display = 'block'; moderatePercentage.textContent = `${scorePercentage}%`; }
+    } else {
+      if (resultPoor && poorPercentage) { resultPoor.style.display = 'block'; poorPercentage.textContent = `${scorePercentage}%`; }
+    }
+    
+    generateResultItems();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    if (localStorageAvailable) {
+      try {
+        const resultData = { date: new Date().toISOString(), score: scorePercentage, answers: answers };
+        let savedResults = JSON.parse(localStorage.getItem('workplaceCommunication') || '[]');
+        savedResults.push(resultData);
+        localStorage.setItem('workplaceCommunication', JSON.stringify(savedResults));
+      } catch (e) { console.error("로컬 스토리지에 결과 저장 중 오류:", e); }
+    }
+  }
+  
+  function generateResultItems() {
+    const container = document.getElementById('result-items-container');
+    if (!container) { console.error("문항별 결과 컨테이너('result-items-container')를 찾을 수 없습니다."); return; }
+    container.innerHTML = '';
+    
+    for (let i = 1; i <= totalQuestions; i++) {
+      const isCorrect = answers[i] === correctAnswers[i];
+      const resultItem = document.createElement('div');
+      resultItem.className = 'result-item';
+      
+      const titleRow = document.createElement('div');
+      titleRow.className = 'result-item-title';
+      titleRow.textContent = `${i}. ${questionTexts[i] || `질문 ${i} 텍스트 로드 실패`}`;
+      
+      const answerRow = document.createElement('div');
+      answerRow.className = 'result-item-answer';
+      
+      const yourAnswer = document.createElement('div');
+      yourAnswer.className = 'answer-info';
+      yourAnswer.innerHTML = `<span>당신의 답변: ${answers[i] ? (answers[i] === 'O' ? '사실' : '해석') : '미응답'}</span>`;
+      
+      const correctAnswerText = correctAnswers[i] ? (correctAnswers[i] === 'O' ? '사실' : '해석') : '정답 정보 없음';
+      const correctAnswerEl = document.createElement('div'); 
+      correctAnswerEl.className = 'answer-info';
+      correctAnswerEl.innerHTML = `<span>정답: ${correctAnswerText}</span>`;
+      
+      const badgeSpan = document.createElement('span');
+      badgeSpan.className = `answer-badge ${isCorrect ? 'correct' : 'incorrect'}`;
+      badgeSpan.textContent = isCorrect ? '정답' : '오답';
+      
+      answerRow.appendChild(yourAnswer);
+      answerRow.appendChild(correctAnswerEl);
+      answerRow.appendChild(badgeSpan);
+      
+      const explanationDiv = document.createElement('div');
+      explanationDiv.className = 'result-item-explanation';
+      explanationDiv.innerHTML = explanations[i] || '해설 정보 없음';
+      
+      resultItem.appendChild(titleRow);
+      resultItem.appendChild(answerRow);
+      resultItem.appendChild(explanationDiv);
+      container.appendChild(resultItem);
+    }
+  }
+  
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const questionNumText = this.name.substring(1);
+      const questionNum = parseInt(questionNumText);
+
+      if (isNaN(questionNum) || questionNum < 1 || questionNum > totalQuestions) {
+          console.error(`유효하지 않은 질문 번호: ${questionNumText} from radio name ${this.name}`);
+          return;
+      }
+      answers[questionNum] = this.value;
+      
+      if (questionNum === currentQuestion) {
+        setTimeout(() => {
+          if (questionNum < totalQuestions) {
+            hideExplanation(questionNum);
+            currentQuestion++;
+            showQuestion(currentQuestion);
+            updateProgress();
+          } else if (questionNum === totalQuestions) {
+            showResults();
+          }
+        }, 300); 
+      }
+    });
+  });
+});
+</script>
+</body>
 </html>
